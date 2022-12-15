@@ -1,13 +1,5 @@
 {
   "components": {
-    "AutobetConfirmPopup": {
-      "cancel": "取消",
-      "proceed": "继续",
-      "autobetConfirm": "自动确认确认",
-      "doNotRemind": "不要再提醒我了",
-      "apply": "申请",
-      "autoBetEnabled": "自动投注启用"
-    },
     "CallbackRoute": {
       "redirecting": "重定向"
     },
@@ -74,17 +66,6 @@
       "bankInfo": "银行信息",
       "provablyFair": "可证明公平",
       "logoutConfirm":"退出 Funarcade?"
-    },
-    "LoginSignup": {
-      "signup": "报名",
-      "login": "登录",
-      "username": "用户名",
-      "password": "密码",
-      "confirmPassword": "确认密码",
-      "forgotPassword": "忘记密码了吗",
-      "email": "电子邮件",
-      "optional": "( 可选)",
-      "orConnectWith": "或连接"
     },
     "LandingPageHeader": {
       "quickLinks": "快速链接",
@@ -298,19 +279,6 @@
         "gameHistory": "游戏历史",
         "profileMenu": "配置文件菜单"
       }
-    },
-    "LandingPage": {
-      "welcomeTo": "欢迎光临",
-      "communityOwnedCasino": "社区拥有的赌场",
-      "landingPageText1":  "一个专注于公平、社区和质量的加密赌博平; Funarcade 旨在提供加密生态系统中可用的最有趣、高质量的可证明公平的游戏选择。将我们的原生 Fun Arcade 代币 (FAT) 质押到 分享赌场的利润。我们努力成为加密货币社区的首选目的地，让您享受无忧、可证明公平的赌博.",
-      "products": "产品",
-      "staking": "质押",
-      "stakingText1":"在各种 Funarcade 质押计划中进行质押以赚取利润，包括:",
-      "stakingText2": "FAT Staking 获取平台利润",
-      "stakingText3": "USDC 彩票资金质押",
-      "stakingText4": "流动性代币质押",
-      "stakingText5": "查看 Funarcade Staking 部分并立即开始赚钱",
-      "contactUs":  "联系我们"
     }
   }
 }

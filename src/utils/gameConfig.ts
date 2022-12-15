@@ -107,7 +107,7 @@ export const GAME_LIST: GameProps[] = [
     isSingle: false,
     cardImage: CrashGameCard,
     cardImageMobile: CrashGameCardMobile,
-    gameRatio: 2 / 1
+    gameRatio: 2 / 1,
   },
   {
     slug: WHEEL_GAME_SLUG,
@@ -192,26 +192,26 @@ export const GAME_LIST: GameProps[] = [
     cardImage: SlotGameCard,
     cardImageMobile: SlotGameCardMobile,
     gameRatio: 2 / 1,
-  }
+  },
 ];
 
-export const SINGLE_GAME_LIST = GAME_LIST.filter(
-  x => x.isSingle
-).sort((a, b) => (a.name > b.name ? 1 : -1));
+export const SINGLE_GAME_LIST = GAME_LIST.filter(x => x.isSingle).sort((a, b) =>
+  a.name > b.name ? 1 : -1,
+);
 
-export const MULTI_GAME_LIST = GAME_LIST.filter(
-  x => !x.isSingle
-).sort((a, b) => (a.name > b.name ? 1 : -1));
+export const MULTI_GAME_LIST = GAME_LIST.filter(x => !x.isSingle).sort((a, b) =>
+  a.name > b.name ? 1 : -1,
+);
 
 export const USER_HISTORY_LENGTH = 10;
 
-function importAll(r) {
-  let images = [] as any;
-  r.keys().forEach(item => {
-    images[item.replace('./', '')] = r(item);
-  });
-  return images;
-}
+// function importAll(r) {
+//   let images = [] as any;
+//   r.keys().forEach(item => {
+//     images[item.replace('./', '')] = r(item);
+//   });
+//   return images;
+// }
 
 export const ERROR_MESSAGES = {
   EXCEED_MAX_BET: 'you have exceeded maximum bet',

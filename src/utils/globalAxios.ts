@@ -1,6 +1,5 @@
 import axios, { AxiosError } from 'axios';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import axiosRetry from 'axios-retry';
 import { DELAY_TIME_API_RETRY, MAX_API_RETRY } from './constants';
 
@@ -30,8 +29,6 @@ axiosRetry(globalAxios, {
 });
 
 const AxiosInterceptor = ({ children }) => {
-  const dispatch = useDispatch();
-
   useEffect(() => {
     const requestConfig = config => {
       if (config?.headers) {

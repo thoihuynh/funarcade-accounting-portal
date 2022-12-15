@@ -73,40 +73,6 @@ export const CustomGlobalStyles = createGlobalStyle`
     font-size: 14px!important;
   }
 
-  .custom-btn-submit {
-    text-transform: none !important;
-    padding: 12px 12px !important;
-    width: 160px;
-    height: 40px;
-    font-weight: var(--font-weight-ultraBold);
-    font-size: 16px;
-    color: white !important;
-    background-color: var(--global--background-color-3) !important;
-    border-radius: 24px !important;
-    border: none;
-    justify-content: center;
-    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
-      0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
-    &:hover {
-      filter: brightness(85%);
-    }
-  
-    &.glow {
-      animation: glowBackground 0.7s infinite alternate;
-      @keyframes glowBackground {
-        0% {
-          filter: brightness(70%);
-        }
-        100% {
-          filter: brightness(100%);
-        }
-      }
-    }
-    :hover {
-      cursor: pointer;
-    }
-  }
-
   .MuiMenuItem-root.quick-link-menu-item{
     &:hover{
       background-color: var(--global--button-color) !important;
@@ -136,12 +102,6 @@ export const CustomGlobalStyles = createGlobalStyle`
       border-style: solid;
       border-color: var(--global--background-color-2) transparent transparent transparent;
     }
-  }
-
-  .error-text {
-    font-weight: 400;
-    font-size: 12px;
-    color: #ed3453;
   }
 
   .custom-position-dialog {

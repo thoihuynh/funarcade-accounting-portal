@@ -1,7 +1,6 @@
 import produce from 'immer';
 
 import {
-  SET_TOKEN,
   SET_ERROR,
   SET_CURRENCIES,
   SET_TOAST,
@@ -10,12 +9,7 @@ import {
   SET_APP_POPUP,
   SET_USER_TRANSACTION,
 } from './constants';
-import {
-  AppState,
-  AppAction,
-  GlobalError,
-  Toast,
-} from 'app/appTypes';
+import { AppState, AppAction, GlobalError, Toast } from 'app/appTypes';
 
 export const initialState: AppState = {
   appPopup: '',

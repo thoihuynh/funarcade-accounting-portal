@@ -1,13 +1,5 @@
 {
   "components": {
-    "AutobetConfirmPopup": {
-      "cancel": "Cancelar",
-      "proceed": "Proceda",
-      "autobetConfirm": "Confirmación de apuesta automática",
-      "doNotRemind": "No me vuelva a recordar",
-      "apply": "Aplicar",
-      "autoBetEnabled": "Apuesta automática habilitadad"
-    },
     "CallbackRoute": {
       "redirecting": "Redireccionamiento"
     },
@@ -74,17 +66,6 @@
       "bankInfo": "Información bancaria",
       "provablyFair": "Provablemente Fair",
       "logoutConfirm":"Cerrar sesión en Funarcade?"
-    },
-    "LoginSignup": {
-      "signup": "Inscríbase",
-      "login": "Iniciar sesión",
-      "username": "Nombre de usuario",
-      "password": "Contraseña",
-      "confirmPassword": "Confirmar contraseña",
-      "forgotPassword": "¿Ha olvidado su contraseña?",
-      "email": "Correo electrónico",
-      "optional": "(optativo)",
-      "orConnectWith": "O conéctese con"
     },
     "LandingPageHeader": {
       "quickLinks": "Enlaces rápidos",

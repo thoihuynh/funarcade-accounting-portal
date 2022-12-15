@@ -1,8 +1,4 @@
-import {
-  LIST_LANGUAGE,
-  LOGIN_URL,
-  ROUTES_HIDE_HEADER,
-} from './constants';
+import { LIST_LANGUAGE, ROUTES_HIDE_HEADER } from './constants';
 
 declare let window;
 
@@ -42,11 +38,6 @@ export const formatAmount = (value: number | string | undefined) => {
       ? num.toLocaleString(undefined, { maximumFractionDigits: 2 })
       : num.toLocaleString()
     : '';
-};
-
-export const clickLoginCommon = () => {
-  localStorage.setItem('prev_pathname', window.location.pathname);
-  window.location.href = LOGIN_URL;
 };
 
 export const emitCustomEvent = (name, data?: any) => {
