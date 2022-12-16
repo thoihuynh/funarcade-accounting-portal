@@ -12,17 +12,17 @@ import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material';
 import HomePage from './pages/HomePage/Loadable';
 import NotFoundPage from './pages/NotFoundPage/Loadable';
 // import GameListPage from './pages/GameListPage/Loadable';
-import CallbackRoute from './components/CallbackRoute/Loadable';
 import AppPageLayout from './layouts/AppPageLayout';
 
 import appReducer from 'app/redux/reducer';
 import appSaga from 'app/redux/sagas';
 import { useInjectReducer, useInjectSaga } from '../utils/redux-injectors';
-import { APP_TITLE, CALLBACK_ROUTE, MOBILE_QUERY } from 'utils/constants';
+import { APP_TITLE } from 'utils/constants';
 import { selectAppLoading, selectToastAlert } from 'app/redux/selectors';
 
 import { CustomGlobalStyles } from 'styles/custom-global-styles';
 import 'react-toastify/dist/ReactToastify.css';
+import { MOBILE_QUERY } from 'styles/variables';
 
 const key = 'app';
 
@@ -36,6 +36,8 @@ const AppWrapper = styled.div`
     flex: 1 1 auto;
     position: relative;
     overflow-y: auto;
+    background: #f5f5f5;
+    color: #0f2743;
   }
 `;
 
@@ -78,8 +80,6 @@ export function App() {
         <Routes>
           <Route element={<AppPageLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path={CALLBACK_ROUTE} element={<CallbackRoute />} />
-            {/* <Route path="user/*" element={<UserPage />} /> */}
           </Route>
 
           <Route path="" element={<NotFoundPage />} />

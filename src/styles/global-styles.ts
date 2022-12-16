@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { HEADER_HEIGHT, TRANSITION_TIME } from 'utils/constants';
+import { HEADER_HEIGHT, TRANSITION_TIME } from './variables';
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -144,12 +144,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .icon_next_to_text {
     margin: 0 5px;
-  }
-
-  pre {
-    background-color: var(--global--background-color-2);
-    padding: 12px;
-    border-radius: 8px;
   }
 
   @media (max-width: 768px) {

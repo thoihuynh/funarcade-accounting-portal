@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TRANSITION_TIME } from 'utils/constants';
+import { TRANSITION_TIME } from 'styles/variables';
 
 const radioSize = 24;
 const radioMargin = 40;

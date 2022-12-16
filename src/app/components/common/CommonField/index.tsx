@@ -195,6 +195,7 @@ const CommonField = (props: Props) => {
           required={required}
           onKeyPress={onKeyPress}
           onKeyDown={onEnterInput}
+          autoComplete="off"
         />
         {rightTextOrIcon && (
           <div

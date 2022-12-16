@@ -9,9 +9,6 @@ export const messages = {
   multiplayer: () => _t(scope.multiplayer, 'Multiplayer'),
   singlePlayer: () => _t(scope.singlePlayer, 'Single Player'),
   language: () => _t(scope.language, 'Language'),
-  login: () => _t(scope.login, 'Log In'),
-  signup: () => _t(scope.signup, 'Sign Up'),
-  logout: () => _t(scope.logout, 'Log out'),
   wallet: () => _t(scope.wallet, 'Wallet'),
   deposit: () => _t(scope.deposit, 'Deposit'),
   withdraw: () => _t(scope.withdraw, 'Withdraw'),
@@ -26,13 +23,6 @@ export const messages = {
   fromWallet: () => _t(scope.fromWallet, 'From wallet'),
   send: () => _t(scope.send, 'Send'),
   receive: () => _t(scope.receive, 'Receive'),
-  notHaveMoney: () =>
-    _t(scope.notHaveMoney, 'Does not have money to exchange yet? Deposit now!'),
-  notHaveAcc: () =>
-    _t(
-      scope.notHaveAcc,
-      'Does not have account to transfer yet? Input your account information here:',
-    ),
   menu: () => _t(scope.menu, 'Menu'),
   notification: () => _t(scope.notification, 'Notification'),
   search: () => _t(scope.search, 'Search'),
@@ -43,5 +33,4 @@ export const messages = {
   balance: () => _t(scope.balance, 'Balance'),
   bankInfo: () => _t(scope.bankInfo, 'Bank Info'),
   provablyFair: () => _t(scope.provablyFair, 'Provably Fair'),
-  logoutConfirm: () => _t(scope.logoutConfirm, 'Log out of Funarcade?'),
 };

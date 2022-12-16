@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TRANSITION_TIME } from 'utils/constants';
+import { TRANSITION_TIME } from 'styles/variables';
 import CrescentMoonIcon from './crescent-moon.svg';
 
 interface CssProps {

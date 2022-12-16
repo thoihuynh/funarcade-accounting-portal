@@ -1,5 +1,5 @@
 import lazyload from 'utils/loadable';
-import { HEADER_HEIGHT } from 'styles/variables';
+import { HEADER_HEIGHT } from 'utils/constants';
 
 export default lazyload(() => import('./index'), {
   fallback: (

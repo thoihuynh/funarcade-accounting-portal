@@ -1,6 +1,6 @@
 import { Popover } from '@mui/material';
 import styled from 'styled-components';
-import { TRANSITION_TIME } from 'utils/constants';
+import { TRANSITION_TIME } from 'styles/variables';
 
 export const LanguageWrap = styled.li`
   list-style: none;

@@ -5,22 +5,9 @@ interface CssProps {
 }
 
 export const BodyWrap = styled.div<CssProps>`
-  background: linear-gradient(
-    180deg,
-    var(--global--body-color) 0%,
-    var(--global--body-color-2) 100%
-  );
-  flex: 1;
   padding: var(--padding-lg) 0;
-
-  .MuiContainer-root {
-    height: unset;
-    display: flex;
-    max-height: 100%;
-
-    > div {
-      width: 100%;
-    }
+  > div {
+    margin: 0;
   }
 
   @media (min-width: 768px) {

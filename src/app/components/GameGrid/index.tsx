@@ -1,6 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import { GameProps } from 'app/appTypes';
-import { MOBILE_QUERY } from 'utils/constants';
+import { MOBILE_QUERY } from 'styles/variables';
 import CommonLink from '../common/CommonLink';
 import { GameList } from './style';
 
@@ -13,16 +13,15 @@ const GameGrid = (props: Props) => {
 
   return (
     <GameList>
-      {props.gameList
-        .map(item => (
-          <CommonLink key={item.url} to={item.url}>
-            <img
-              className="global_transition"
-              src={isMobile ? item.cardImageMobile : item.cardImage}
-              alt={item.name}
-            />
-          </CommonLink>
-        ))}
+      {props.gameList.map(item => (
+        <CommonLink key={item.url} to={item.url}>
+          <img
+            className="global_transition"
+            src={isMobile ? item.cardImageMobile : item.cardImage}
+            alt={item.name}
+          />
+        </CommonLink>
+      ))}
     </GameList>
   );
 };

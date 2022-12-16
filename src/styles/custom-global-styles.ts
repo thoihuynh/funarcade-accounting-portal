@@ -1,5 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import { TRANSITION_TIME } from 'utils/constants';
+import {
+  FONT_SIZE_STYLES,
+  FONT_WEIGHT_STYLES,
+  TRANSITION_TIME,
+} from './variables';
 
 export const CustomGlobalStyles = createGlobalStyle`
   :root {
@@ -111,5 +115,20 @@ export const CustomGlobalStyles = createGlobalStyle`
         margin-top: 80px !important;
       }
     }
+  }
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .big-title {
+    font-size: ${FONT_SIZE_STYLES.LARGE} !important;
+    font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
+  }
+
+  .small-title {
+    font-size: ${FONT_SIZE_STYLES.SMALL} !important;
+    font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
   }
 `;

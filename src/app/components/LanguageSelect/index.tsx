@@ -9,11 +9,12 @@ import { LIST_LANGUAGE } from 'utils/constants';
 interface Props {
   showText?: boolean;
   isGameChat?: boolean;
+  rightTextOrIcon?: JSX.Element | string;
 }
 
 export function LanguageSelect(props: Props) {
   const { t } = useTranslation();
-  const { showText, isGameChat } = props;
+  const { showText, isGameChat, rightTextOrIcon } = props;
   const { i18n } = useTranslation();
   const [value, setValue] = useState(checkDefaultLang(i18n.language));
   const [elLang, setElLang] = useState<null | HTMLElement>(null);
@@ -30,7 +31,7 @@ export function LanguageSelect(props: Props) {
     <>
       <Tooltip title={t(...messages.language()) + ''}>
         <LanguageWrap
-          className="select-language"
+          className="select-language d-flex"
           onClick={e => setElLang(e.currentTarget)}
         >
           <div className="lang-wrapper">
@@ -41,6 +42,8 @@ export function LanguageSelect(props: Props) {
               <div className="text">{t(...messages.language())}</div>
             )}
           </div>
+
+          {rightTextOrIcon && <span>{rightTextOrIcon}</span>}
         </LanguageWrap>
       </Tooltip>
 

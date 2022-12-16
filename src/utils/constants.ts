@@ -18,17 +18,6 @@ export const LIST_LANGUAGE = [
 
 export const APP_TITLE = 'Funarcade';
 
-// style
-export const HEADER_HEIGHT = 60;
-export const PADDING_GAMEPAGE = 16;
-export const TRANSITION_TIME = 0.3;
-export const MOBILE_QUERY = `(max-width: 768px)`;
-
-export const POPUP_TINY_WIDTH = 360;
-export const POPUP_SMALL_WIDTH = 400;
-export const POPUP_MEDIUM_WIDTH = 520;
-export const POPUP_BIG_WIDTH = 600;
-
 export const WITH_CREDENTIALS_SOCKET = process.env.REACT_APP_ENV === 'prod';
 export const SOCKET_TIMEOUT = 10000;
 
@@ -61,12 +50,3 @@ export const CURRENCY_ICONS = [
 
 export const MAX_CHARACTER_DISPLAYED = 8;
 export const MAX_CHARACTER_HASHED_DISPLAYED = 10;
-
-export const STYLES = {
-  BUTTON: {
-    PRIMARY: 'linear-gradient(180deg)',
-    SECONDARY: 'linear-gradient(180deg, #02C2FF 0%, #731DFF 100%)',
-    DANGER: 'linear-gradient(180deg, #FF8095 0%, #DD0025 100%)',
-    DISABLED: '#6583A7',
-  },
-};
