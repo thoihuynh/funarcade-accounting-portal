@@ -36,58 +36,6 @@ import SlotGameCardMobile from 'app/images/list-games/mobiles/Slot-mobile.png';
 
 import { GameProps } from 'app/appTypes';
 
-const color0 = '#FFFEF8';
-const color1 = '#e34133';
-const color2 = '#1cbaff';
-const color3 = '#ffc700';
-export const LIST_COLOR_WHEEL = [color0, color1, color2, color3];
-
-const whiteStr = '2x';
-const redStr = '3x';
-const blueStr = '5x';
-const yellowStr = '50x';
-export const LIST_CHOICE_WHEEL = [whiteStr, redStr, blueStr, yellowStr];
-
-export const WHEEL_RESULT = [
-  [
-    2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40,
-    42, 44, 46, 48, 50, 52,
-  ],
-  [3, 5, 7, 13, 15, 17, 23, 25, 27, 29, 31, 37, 39, 41, 47, 49, 51],
-  [1, 9, 11, 19, 21, 33, 35, 43, 45, 53],
-  [0],
-];
-
-export const ROAD_LEVELS = [
-  {
-    value: 'EASY',
-    config: {
-      collumns: 4,
-      winingCollumns: 1,
-      rows: 9,
-      multiplier: 1.29,
-    },
-  },
-  {
-    value: 'MEDIUM',
-    config: {
-      collumns: 3,
-      winingCollumns: 1,
-      rows: 9,
-      multiplier: 1.44,
-    },
-  },
-  {
-    value: 'HARD',
-    config: {
-      collumns: 2,
-      winingCollumns: 1,
-      rows: 9,
-      multiplier: 1.88,
-    },
-  },
-];
-
 export const CRASH_GAME_SLUG = 'crash';
 export const WHEEL_GAME_SLUG = 'wheel';
 export const JACKPOT_GAME_SLUG = 'jackpot';

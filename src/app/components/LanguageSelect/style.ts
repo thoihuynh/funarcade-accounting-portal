@@ -1,9 +1,16 @@
 import { Popover } from '@mui/material';
 import styled from 'styled-components';
-import { TRANSITION_TIME } from 'styles/variables';
+import {
+  COLOR_STYLES,
+  FONT_SIZE_STYLES,
+  TRANSITION_TIME,
+} from 'styles/variables';
 
 export const LanguageWrap = styled.li`
   list-style: none;
+  background: #ffff;
+  height: 48px;
+  border-radius: 32px;
 
   .lang-wrapper {
     display: flex;
@@ -15,19 +22,23 @@ export const LanguageWrap = styled.li`
   .icon {
     width: 24px;
     height: 24px;
-    background: linear-gradient(
-      180deg,
-      var(--global--body-color) 0%,
-      #327aff 100%
-    );
     text-align: center;
-    border-radius: 48px;
-    font-size: 11px;
+    font-size: ${FONT_SIZE_STYLES.DEFAULT};
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    cursor: pointer;
+
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+
+    padding: 16px;
+  }
+
+  svg {
+    margin-right: 12px;
+    path {
+      fill: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+    }
   }
 
   .text {

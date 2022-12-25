@@ -33,36 +33,6 @@ export interface UserHistory {
   jackpotTotalAmount: number;
 }
 
-export interface BaccaratUserHistory {
-  gameId: string;
-  playId: string;
-  gameMetaData: IGameMetaData;
-  playMetaData: IPlayMetaData;
-}
-
-export interface IGameMetaData {
-  gameId: string;
-  gameNumber: string;
-  gameResult: string;
-  gameTime: string;
-  isBankerPair: boolean;
-  isPlayerPair: boolean;
-}
-
-export interface IPlayMetaData {
-  betAmount: string;
-  cashOut: number;
-  choice: number;
-  gameId: string;
-  isBankerPair: boolean;
-  isPlayerPair: boolean;
-  playId: string;
-  playTime: string;
-  result: number;
-  userId: number;
-  walletId: number;
-}
-
 export interface Toast {
   msg: ToastContent;
   type: 'error' | 'success' | 'info' | 'warn' | 'default' | 'dark';
@@ -79,21 +49,7 @@ export interface GlobalError {
   message: string;
 }
 export type AppAction = ActionType<typeof actions>;
-export interface userInfoRes {
-  sub: string;
-  preferred_username: string;
-  name: string;
-  email: string;
-  email_verified: boolean;
-}
-export interface TokenData {
-  id_token: string;
-  access_token: string;
-  expires_in: number;
-  token_type: string;
-  refresh_token: string;
-  scope: string;
-}
+
 export interface GameProps {
   slug: string;
   name: string;
@@ -106,9 +62,6 @@ export interface GameProps {
   gameRatio: number;
 }
 
-export interface ResultBoxProps {
-  calResult: number;
-}
 
 export interface Currency {
   id: number;
@@ -118,46 +71,6 @@ export interface Currency {
   exchangeRate: number;
   createdAt: string;
   updatedAt: string;
-}
-
-interface Parent {
-  chain: string;
-  type: string;
-}
-
-interface Explorer {
-  name: string;
-  url: string;
-  standard: string;
-  icon?: string;
-}
-
-interface Ens {
-  registry: string;
-}
-
-interface NativeCurrency {
-  name: string;
-  symbol: string;
-  decimals: number;
-}
-
-export interface LoginData {
-  username: string;
-  password: string;
-}
-
-export interface SignUpData {
-  username: string;
-  password: string;
-  confirmPassword: string;
-  email?: string;
-}
-
-export interface UserInfoByPublicAddress {
-  sub: string;
-  challenge: string;
-  address: string;
 }
 
 export interface UserTransaction {
@@ -180,13 +93,6 @@ export interface UserTransactionRes {
   pageSize: number;
   data: UserTransaction[];
 }
-
-export interface ChangePasswordData {
-  newPassword: string;
-  currentPassword: string;
-}
-
-export interface Setting2FAData {}
 
 export interface NotificationDetail {
   text: string;

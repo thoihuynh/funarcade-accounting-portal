@@ -18,9 +18,6 @@ export const LIST_LANGUAGE = [
 
 export const APP_TITLE = 'Funarcade';
 
-export const WITH_CREDENTIALS_SOCKET = process.env.REACT_APP_ENV === 'prod';
-export const SOCKET_TIMEOUT = 10000;
-
 export const CALLBACK_ROUTE = '/callback';
 export const ROUTES_HIDE_HEADER = [CALLBACK_ROUTE, '/chat'];
 

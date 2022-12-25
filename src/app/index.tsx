@@ -5,9 +5,9 @@ import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { Backdrop, CircularProgress, useMediaQuery } from '@mui/material';
+import { Backdrop, CircularProgress } from '@mui/material';
 
 import HomePage from './pages/HomePage/Loadable';
 import NotFoundPage from './pages/NotFoundPage/Loadable';
@@ -22,7 +22,7 @@ import { selectAppLoading, selectToastAlert } from 'app/redux/selectors';
 
 import { CustomGlobalStyles } from 'styles/custom-global-styles';
 import 'react-toastify/dist/ReactToastify.css';
-import { MOBILE_QUERY } from 'styles/variables';
+import { COLOR_STYLES } from 'styles/variables';
 
 const key = 'app';
 
@@ -36,8 +36,7 @@ const AppWrapper = styled.div`
     flex: 1 1 auto;
     position: relative;
     overflow-y: auto;
-    background: #f5f5f5;
-    color: #0f2743;
+    background: ${COLOR_STYLES.BODY_COLOR};
   }
 `;
 
@@ -45,11 +44,9 @@ export function App() {
   useInjectReducer({ key, reducer: appReducer });
   useInjectSaga({ key, saga: appSaga });
 
-  const dispatch = useDispatch();
   const toastAlert = useSelector(selectToastAlert);
   const appLoading = useSelector(selectAppLoading);
   const { i18n } = useTranslation();
-  const isMobile = useMediaQuery(MOBILE_QUERY);
 
   useEffect(() => {
     if (toastAlert && toast[toastAlert.type]) {

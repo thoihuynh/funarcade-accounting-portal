@@ -1,14 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import Header from 'app/components/Header/Loadable';
 import Sidebar from 'app/components/Sidebar';
 import { AppPageLayoutWrapper } from './style';
+import Header from 'app/components/Header';
 
 export default function AppPageLayout() {
   return (
     <AppPageLayoutWrapper>
-      <Header />
-      <div className="d-flex app-page-content">
-        <Sidebar />
+      <Sidebar />
+      <div className="app-page-content">
+        <Header />
         <Outlet />
       </div>
     </AppPageLayoutWrapper>

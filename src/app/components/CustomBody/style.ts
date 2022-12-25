@@ -6,10 +6,6 @@ interface CssProps {
 
 export const BodyWrap = styled.div<CssProps>`
   padding: var(--padding-lg) 0;
-  > div {
-    margin: 0;
-  }
-
   @media (min-width: 768px) {
     .MuiContainer-root {
       width: ${props => (props.width ? `${props.width}px` : 'unset')};

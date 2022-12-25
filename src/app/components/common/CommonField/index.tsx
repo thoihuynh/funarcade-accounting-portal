@@ -1,6 +1,6 @@
-import { messages } from 'app/pages/HomePage/messages';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { COLOR_STYLES } from 'styles/variables';
 
 interface Props {
   name?: string;
@@ -33,7 +33,6 @@ const CustomField = styled.div`
 
   .left_icon {
     position: absolute;
-    // top: 7px;
     left: 12px;
   }
 
@@ -62,13 +61,13 @@ const CustomField = styled.div`
   .input_wrap {
     display: flex;
     align-items: center;
-    background: var(--global--background-color-2);
+    color: ${COLOR_STYLES.BODY_COLOR};
     transition: all 0.5s;
-    border: 2px solid var(--global--background-color-2);
+    box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
 
-    &:focus-within {
-      border: 2px solid var(--global--background-color-3);
-    }
+    border-radius: 32px !important;
+    height: 48px;
+    background: #ffff;
   }
 
   input {
@@ -83,6 +82,9 @@ const CustomField = styled.div`
     background-color: transparent;
     padding: 0 20px;
     width: 100%;
+    border-radius: 32px;
+
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
@@ -148,7 +150,7 @@ const CommonField = (props: Props) => {
     rightBtnText,
     onClickRightBtn,
   } = props;
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const onEnterInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -188,7 +190,7 @@ const CommonField = (props: Props) => {
               ? placeholder !== undefined
                 ? placeholder
                 : label
-                ? `${t(...messages.inputYour())} ${label}`
+                ? `Input your ${label}`
                 : ''
               : ''
           }

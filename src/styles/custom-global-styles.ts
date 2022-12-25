@@ -128,7 +128,7 @@ export const CustomGlobalStyles = createGlobalStyle`
   }
 
   .small-title {
-    font-size: ${FONT_SIZE_STYLES.SMALL} !important;
+    font-size: ${FONT_SIZE_STYLES.DEFAULT} !important;
     font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
   }
 `;

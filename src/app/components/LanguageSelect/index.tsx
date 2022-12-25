@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { checkDefaultLang } from '../../../utils/utilFunction';
-import { messages } from '../Header/messages';
 import { Tooltip } from '@mui/material';
 import { LanguageWrap, ListLangWrap } from './style';
 import { LIST_LANGUAGE } from 'utils/constants';
@@ -13,7 +12,6 @@ interface Props {
 }
 
 export function LanguageSelect(props: Props) {
-  const { t } = useTranslation();
   const { showText, isGameChat, rightTextOrIcon } = props;
   const { i18n } = useTranslation();
   const [value, setValue] = useState(checkDefaultLang(i18n.language));
@@ -29,7 +27,7 @@ export function LanguageSelect(props: Props) {
 
   return (
     <>
-      <Tooltip title={t(...messages.language()) + ''}>
+      <Tooltip title="language">
         <LanguageWrap
           className="select-language d-flex"
           onClick={e => setElLang(e.currentTarget)}
@@ -38,12 +36,10 @@ export function LanguageSelect(props: Props) {
             <div className="icon">
               {value?.toLocaleUpperCase().substring(0, 2)}
             </div>
-            {showText && (
-              <div className="text">{t(...messages.language())}</div>
-            )}
+            {showText && <div className="text">Language</div>}
           </div>
 
-          {rightTextOrIcon && <span>{rightTextOrIcon}</span>}
+          {rightTextOrIcon && <>{rightTextOrIcon}</>}
         </LanguageWrap>
       </Tooltip>
 

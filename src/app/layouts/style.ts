@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 export const AppPageLayoutWrapper = styled.div`
-  height: 100%;
+  display: flex;
+  align-items: flex-start;
   .app-page-content {
-    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+    padding: 56px 20px;
+    > .MuiContainer-root {
+      height: auto;
+    }
   }
 `;

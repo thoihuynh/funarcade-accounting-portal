@@ -7,7 +7,8 @@ export const POPUP_TINY_WIDTH = 360;
 export const POPUP_SMALL_WIDTH = 400;
 export const POPUP_MEDIUM_WIDTH = 520;
 export const POPUP_BIG_WIDTH = 600;
-export const SIDE_BAR_WIDTH = 200;
+export const SIDE_BAR_MIN_WIDTH = 120;
+export const SIDE_BAR_MAX_WIDTH = 264;
 
 export const BUTTON_STYLES = {
   PRIMARY: '',
@@ -17,9 +18,10 @@ export const BUTTON_STYLES = {
 };
 
 export const FONT_SIZE_STYLES = {
-  SMALL: '1rem',
-  MEDIUM: '1.75rem',
-  LARGE: '2rem',
+  DEFAULT: '16px',
+  SMALL: '20px',
+  MEDIUM: '24px',
+  LARGE: '32px',
 };
 
 export const FONT_WEIGHT_STYLES = {
@@ -29,14 +31,11 @@ export const FONT_WEIGHT_STYLES = {
 };
 
 export const COLOR_STYLES = {
-  PRIMARY: '#0F2743',
-  SECONDARY: '',
-  PURPLE: '#9B37FF',
-  YELLOW: '',
-  GOLD: '#EAB328',
-  BLUE: '#1659D4',
-  BLACK: '',
-  WHITE: '#FFFFFF',
-  DE_ACTIVE_GREY: '#B3C4D9',
-  HOVER_GREY: '#F0F5FA',
+  BODY_COLOR: '#F5F5F5',
+  BACKGROUND_MAIN_COLOR: '#5D3EEF',
+  BACKGROUND_COLOR_LIGHT: '#F9F9FF',
+  TEXT_MAIN_COLOR: '#020069',
+  TEXT_MAIN_COLOR_LIGHT: '#B7C2E8',
+  TEXT_SECONDARY_COLOR: '#0F2743',
+  BORDER_COLOR: '#D9E2EC',
 };

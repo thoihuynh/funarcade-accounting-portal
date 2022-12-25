@@ -1,6 +1,10 @@
 import { Card } from '@mui/material';
 import styled from 'styled-components';
-import { COLOR_STYLES } from 'styles/variables';
+import {
+  COLOR_STYLES,
+  FONT_SIZE_STYLES,
+  FONT_WEIGHT_STYLES,
+} from 'styles/variables';
 
 export const HomepageWrap = styled.div`
   height: auto;
@@ -12,89 +16,81 @@ export const HomepageWrap = styled.div`
     background-size: cover;
     background-position: center;
   }
-
-  .cards {
-    margin: 2rem 0;
-  }
 `;
 
-interface CssPropsCard {
-  color: string;
-}
+export const CardContainer = styled.div`
+  margin: 1.5rem 0;
+`;
 
-export const CardWrapper = styled(Card)<CssPropsCard>`
-  color: ${props => props.color} !important;
-  border-radius: 8px !important;
-  border: 1px solid #d9e2ec;
-  box-shadow: 0px 20px 30px rgb(179 196 217 / 10%) !important;
-  .header {
-    padding: 16px;
+export const CardWrapper = styled(Card)`
+  background: #ffffff;
+  height: 320px;
 
-    border-bottom: 1px solid #d9e2ec;
-    > div {
-    }
-  }
-
-  .content {
-    padding: 16px;
-
-    .item {
-      justify-content: space-between;
-      align-items: center;
-      h1 {
-        margin: 0;
-      }
-      p {
-        font-size: 16px;
-        font-weight: 700;
-      }
-    }
+  &.MuiPaper-root {
+    box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
+    border-radius: 32px;
   }
 `;
 
 export const TableWrapper = styled.div`
   margin: 2rem 0;
+  background: #ffffff;
+  border-radius: 32px;
+
+  .MuiPaper-root {
+    box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
+    border-radius: 32px !important;
+    overflow: hidden;
+  }
+
   table {
     td,
     th {
-      color: ${COLOR_STYLES.PRIMARY} !important;
+      padding: 12px 24px;
+
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+      font-size: ${FONT_SIZE_STYLES.SMALL};
+      font-weight: ${FONT_WEIGHT_STYLES.THIN};
     }
 
     thead {
       box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
       th:not(:last-child) {
-        border-right: 1px solid #d9e2ec;
+        border-right: 2px solid #f0f5fa;
+      }
+      th {
+        border-bottom: 2px solid #f0f5fa;
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
       }
     }
 
     tbody {
-      box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
-      th,
-      td {
-        padding: 8px 16px;
-      }
-
       th:not(:last-child) {
-        border-right: 1px solid #d9e2ec;
-      }
-      td:not(:last-child) {
-        border-right: 1px solid #d9e2ec;
+        border-right: 2px solid #f0f5fa;
       }
 
+      td:not(:last-child) {
+        border-right: 2px solid #f0f5fa;
+      }
+  
       tr:not(:last-child) {
         th,
         td {
           border-bottom: none;
         }
       }
-
+  
       tr:last-child {
-        box-shadow: 0px -10px 10px rgb(181 197 217 / 10%);
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
         th,
         td {
-          border-top: 1px solid #d9e2ec;
+          border-top: 2px solid #f0f5fa;
+        }
+
+        td {
+          font-size: ${FONT_SIZE_STYLES.LARGE};
+          font-weight: ${FONT_WEIGHT_STYLES.BOLD};
         }
       }
-    }
   }
 `;
