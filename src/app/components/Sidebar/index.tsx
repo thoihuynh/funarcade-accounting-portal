@@ -1,125 +1,48 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import { SIDE_BAR_MIN_WIDTH, SIDE_BAR_MAX_WIDTH } from 'styles/variables';
+// import iconToggle from 'app/images/toggle.svg';
+// import logo from 'app/images/icons/icon-app.svg';
+import { SidebarNav } from './style';
 import {
-  SIDE_BAR_MIN_WIDTH,
-  SIDE_BAR_MAX_WIDTH,
-  COLOR_STYLES,
-  FONT_SIZE_STYLES,
-  FONT_WEIGHT_STYLES,
-} from 'styles/variables';
-import { SidebarData } from './data';
-import SubMenu from './SubMenu';
-import iconToggle from 'app/images/toggle.svg';
-import logo from 'app/images/icons/icon-app.svg';
+  Collapse,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
+import React from 'react';
 
-interface CssPropsNav {
-  expand: boolean;
-  width: number;
-}
-
-// const Nav = styled.div`
-//   background: #15171c;
-//   height: 80px;
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-// `;
-
-// const NavIcon = styled(Link)`
-//   margin-left: 2rem;
-//   height: 2rem;
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-// `;
-
-const SidebarNav = styled.nav<CssPropsNav>`
-  position: relative;
-  width: ${props => props.width}px;
-  background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
-  border-radius: 0px 80px 80px 0px;
-  min-height: 100vh;
-  height: 100%;
-  transition: width 350ms;
-
-  .toggle {
-    position: absolute;
-    right: -12px;
-    top: 64px;
-    background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
-    border-radius: 50%;
-    transition: all 500ms;
-
-    width: 24px;
-    height: 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 12px;
-      height: 12px;
-    }
-
-    .expand {
-      animation: rotating_2 300ms ease-in-out forwards;
-    }
-
-    .collapse {
-      animation: rotating_1 500ms ease-in-out forwards;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  @keyframes rotating_1 {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(180deg);
-    }
-  }
-
-  @keyframes rotating_2 {
-    from {
-      transform: rotate(180deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
-`;
-
-const SidebarWrap = styled.div`
-  width: 100%;
-  padding: 0 28px;
-  .logo-menu {
-    padding-top: 60px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: ${FONT_WEIGHT_STYLES.BOLD};
-    color: #ffffff;
-    cursor: pointer;
-    justify-content: center;
-
-    span {
-      font-size: ${FONT_SIZE_STYLES.SMALL};
-    }
-  }
-`;
+import iconHome from 'app/images/icons/home-active.svg';
+// import iconMenu from 'app/images/icons/menu-icon.svg';
+// import iconClose from 'app/images/icons/icon-up.svg';
+// import iconOpen from 'app/images/icons/icon-down.svg';
+import iconGame from 'app/images/icons/menu-game.svg';
+import iconSport from 'app/images/icons/menu-sport.svg';
+import iconLottery from 'app/images/icons/menu-lottery.svg';
+import iconReport from 'app/images/icons/menu-report.svg';
+import iconReward from 'app/images/icons/menu-reward.svg';
+// import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-  const [expand, setExpand] = useState(true);
+  // const navigate = useNavigate();
 
-  const onToggleExpandMenu = () => setExpand(!expand);
+  const [expandGameMenu, setExpandGameMenu] = useState(true);
+
+  const onToggleExpandGameMenu = () => setExpandGameMenu(!expandGameMenu);
+
+  const [open, setOpen] = React.useState(false);
+
+  function handleClick() {
+    setOpen(!open);
+  }
+
+  // const handleOnClickMenu = (link: string) => {
+  //   navigate(`${link}`);
+  // };
 
   return (
     <>
-      <SidebarNav
+      {/* <SidebarNav
         expand={expand}
         width={expand ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
       >
@@ -141,6 +64,58 @@ const Sidebar = () => {
             />
           </div>
         </>
+      </SidebarNav> */}
+      <SidebarNav
+        component="nav"
+        disablePadding
+        expand={expandGameMenu}
+        width={expandGameMenu ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
+      >
+        <ListItem onClick={() => handleClick}>
+          <ListItemIcon>
+            <img src={iconHome} alt="" />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+
+        <ListItem onClick={handleClick}>
+          <ListItemIcon>
+            <img src={iconGame} alt="" />
+          </ListItemIcon>
+          <ListItemText primary="Games" />
+        </ListItem>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem onClick={handleClick}>
+              <ListItemIcon>
+                <img src={iconReport} alt="" />
+              </ListItemIcon>
+              <ListItemText inset primary="Game Report" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <img src={iconReward} alt="" />
+              </ListItemIcon>
+              <ListItemText inset primary="Reward Points" />
+            </ListItem>
+          </List>
+        </Collapse>
+
+        <ListItem>
+          <ListItemIcon>
+            <img src={iconLottery} alt="" />
+          </ListItemIcon>
+          <ListItemText primary="Lotteries" />
+        </ListItem>
+
+        <ListItem>
+          <ListItemIcon>
+            <img src={iconSport} alt="" />
+          </ListItemIcon>
+          <ListItemText primary="Sports" />
+        </ListItem>
+
+        <div className="toggle" onClick={onToggleExpandGameMenu}></div>
       </SidebarNav>
     </>
   );
