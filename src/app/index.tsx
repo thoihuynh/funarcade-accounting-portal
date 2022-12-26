@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Helmet } from 'react-helmet-async';
 import { Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
@@ -23,6 +21,9 @@ import { selectAppLoading, selectToastAlert } from 'app/redux/selectors';
 import { CustomGlobalStyles } from 'styles/custom-global-styles';
 import 'react-toastify/dist/ReactToastify.css';
 import { COLOR_STYLES } from 'styles/variables';
+import GameReportPage from './pages/GamePages/Reports';
+import GameRewardPage from './pages/GamePages/Rewards';
+import { useEffect } from 'react';
 
 const key = 'app';
 
@@ -77,6 +78,8 @@ export function App() {
         <Routes>
           <Route element={<AppPageLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/games/report" element={<GameReportPage />} />
+            <Route path="/games/reward" element={<GameRewardPage />} />
           </Route>
 
           <Route path="" element={<NotFoundPage />} />
