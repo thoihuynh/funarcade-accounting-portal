@@ -131,4 +131,47 @@ export const CustomGlobalStyles = createGlobalStyle`
     font-size: ${FONT_SIZE_STYLES.DEFAULT} !important;
     font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
   }
+
+  .popover-menu {
+    >.MuiPaper-root {
+      width: 200px;
+      border-radius: 24px;
+      box-shadow: none;
+      left: 200px;
+      li {
+        height: 48px;
+        gap: 8px;
+        &:hover {
+          cursor: pointer;
+          span {
+            color: #020069;
+          }
+          svg {
+            path {
+              fill: #020069;
+            }
+          }
+        }
+      }
+      .MuiListItemText-root{
+        padding-left:0;
+        span {
+          font-weight: 700;
+          font-size: 16px;
+          color: #b7c2e8;
+        }
+      }
+      .MuiListItemIcon-root {
+        min-width: auto;
+      }
+
+      li.active {
+        .MuiListItemText-root{
+          span {
+            color: #020069;
+          }
+        }
+      }
+    }
+  }
 `;

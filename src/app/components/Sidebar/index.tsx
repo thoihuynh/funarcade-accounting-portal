@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { SIDE_BAR_MIN_WIDTH, SIDE_BAR_MAX_WIDTH } from 'styles/variables';
-// import iconToggle from 'app/images/toggle.svg';
-// import logo from 'app/images/icons/icon-app.svg';
-import { SidebarNav } from './style';
+import iconToggle from 'app/images/toggle.svg';
+import logo from 'app/images/icons/icon-app.svg';
+import { HoverMenu, SidebarHeader, SidebarNav, ToggleWrapper } from './style';
 import {
   Collapse,
   List,
@@ -12,110 +12,240 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import iconHome from 'app/images/icons/home-active.svg';
-// import iconMenu from 'app/images/icons/menu-icon.svg';
-// import iconClose from 'app/images/icons/icon-up.svg';
-// import iconOpen from 'app/images/icons/icon-down.svg';
-import iconGame from 'app/images/icons/menu-game.svg';
-import iconSport from 'app/images/icons/menu-sport.svg';
-import iconLottery from 'app/images/icons/menu-lottery.svg';
-import iconReport from 'app/images/icons/menu-report.svg';
-import iconReward from 'app/images/icons/menu-reward.svg';
-// import { useNavigate } from 'react-router-dom';
+import iconClose from 'app/images/icons/icon-up.svg';
+import iconOpen from 'app/images/icons/icon-down.svg';
+
+import { useLocation, useNavigate } from 'react-router-dom';
+import IconMenuHome from '../icons/menu-home';
+import IconMenuSport from '../icons/menu-sport';
+import IconMenuLottery from '../icons/menu-lottery';
+import IconMenuReport from '../icons/menu-report';
+import IconMenuReward from '../icons/menu-reward';
+import IconMenuGame from '../icons/menu-game';
 
 const Sidebar = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const [expandGameMenu, setExpandGameMenu] = useState(true);
+  const { pathname } = useLocation();
 
-  const onToggleExpandGameMenu = () => setExpandGameMenu(!expandGameMenu);
+  const [expandMenuGame, setExpandMenuGame] = useState(false);
+  const [toggleSidebar, setToggleSidebar] = useState(true);
 
-  const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
-  function handleClick() {
-    setOpen(!open);
-  }
+  const onToggleExpandSidebar = () => setToggleSidebar(!toggleSidebar);
 
-  // const handleOnClickMenu = (link: string) => {
-  //   navigate(`${link}`);
-  // };
+  const handleClickMenu = (link: string) => {
+    setExpandMenuGame(false);
+    navigate(`${link}`);
+  };
+
+  const handlePopoverGameOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverGameClose = () => {
+    setAnchorEl(null);
+  };
+
+  const checkMenuItemActive = (link: string) => {
+    return pathname === link ? 'active' : '';
+  };
+
+  const handleClickGame = (link: string) => {
+    navigate('/games/report');
+    setExpandMenuGame(true);
+  };
+
+  const handleToggleGameMenu = () => {
+    setExpandMenuGame(!expandMenuGame);
+    if (expandMenuGame) navigate('/games/report');
+  };
+
+  const expandMenu = () =>
+    checkMenuItemActive('/games/report') === 'active' ||
+    checkMenuItemActive('/games/reward') === 'active';
 
   return (
     <>
-      {/* <SidebarNav
-        expand={expand}
-        width={expand ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
-      >
-        <>
-          <SidebarWrap>
-            <div className="logo-menu d-flex">
-              <img src={logo} alt="logo" />
-              <span>{expand ? 'funarcade' : ''}</span>
-            </div>
-            {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} hideLabel={!expand} />;
-            })}
-          </SidebarWrap>
-          <div className="toggle" onClick={onToggleExpandMenu}>
-            <img
-              src={iconToggle}
-              className={expand ? 'expand' : 'collapse'}
-              alt="toggle"
-            />
-          </div>
-        </>
-      </SidebarNav> */}
       <SidebarNav
         component="nav"
         disablePadding
-        expand={expandGameMenu}
-        width={expandGameMenu ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
+        expand={toggleSidebar}
+        width={toggleSidebar ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
       >
-        <ListItem onClick={() => handleClick}>
+        <SidebarHeader>
+          <div className="logo-menu d-flex">
+            <img src={logo} alt="logo" />
+            {toggleSidebar && <span>funarcade</span>}
+          </div>
+        </SidebarHeader>
+
+        <ListItem
+          className={`list-item ${checkMenuItemActive('/')}`}
+          onClick={() => handleClickMenu('')}
+        >
           <ListItemIcon>
-            <img src={iconHome} alt="" />
+            <IconMenuHome />
           </ListItemIcon>
-          <ListItemText primary="Dashboard" />
+          {toggleSidebar && <ListItemText primary="Dashboard" />}
         </ListItem>
 
-        <ListItem onClick={handleClick}>
-          <ListItemIcon>
-            <img src={iconGame} alt="" />
+        <ListItem
+          className={`list-item ${
+            expandMenuGame && toggleSidebar ? 'expanded-item' : ''
+          } ${
+            checkMenuItemActive('/games/report') ||
+            checkMenuItemActive('/games/reward')
+          }`}
+          onMouseEnter={handlePopoverGameOpen}
+          onMouseLeave={handlePopoverGameClose}
+        >
+          <ListItemIcon onClick={() => handleClickGame('/games/report')}>
+            <IconMenuGame />
           </ListItemIcon>
-          <ListItemText primary="Games" />
+          {toggleSidebar && (
+            <>
+              <ListItemText
+                primary="Games"
+                onClick={() => handleClickGame('/games/report')}
+              />
+              <img
+                src={expandMenuGame ? iconClose : iconOpen}
+                alt=""
+                className="toggle-menu-game"
+                onClick={handleToggleGameMenu}
+              />
+            </>
+          )}
+          {!toggleSidebar && (
+            <HoverMenu
+              style={{ zIndex: 1401 }}
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              anchorOrigin={{
+                vertical: 'center',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'center',
+                horizontal: 'left',
+              }}
+              onClose={handlePopoverGameClose}
+              className="popover-menu"
+            >
+              <ListItem
+                className={`list-item sub-item ${checkMenuItemActive(
+                  '/games/report',
+                )}`}
+                onClick={() => handleClickMenu('games/report')}
+              >
+                <ListItemIcon>
+                  <IconMenuReport />
+                </ListItemIcon>
+                <ListItemText
+                  className="sub-menu-text"
+                  inset
+                  primary="Game Report"
+                />
+              </ListItem>
+              <ListItem
+                className={`list-item sub-item ${checkMenuItemActive(
+                  '/games/reward',
+                )}`}
+                onClick={() => handleClickMenu('games/reward')}
+              >
+                <ListItemIcon>
+                  <IconMenuReward />
+                </ListItemIcon>
+                <ListItemText
+                  className="sub-menu-text"
+                  inset
+                  primary="Reward Points"
+                />
+              </ListItem>
+            </HoverMenu>
+          )}
         </ListItem>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem onClick={handleClick}>
-              <ListItemIcon>
-                <img src={iconReport} alt="" />
-              </ListItemIcon>
-              <ListItemText inset primary="Game Report" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <img src={iconReward} alt="" />
-              </ListItemIcon>
-              <ListItemText inset primary="Reward Points" />
-            </ListItem>
-          </List>
-        </Collapse>
 
-        <ListItem>
+        {toggleSidebar && (
+          <Collapse
+            in={expandMenu()}
+            timeout="auto"
+            unmountOnExit
+            className={`collapse-content ${
+              expandMenuGame
+                ? checkMenuItemActive('/games/report') ||
+                  checkMenuItemActive('/games/reward')
+                : ''
+            }-expand`}
+          >
+            <List component="div" disablePadding>
+              <ListItem
+                className={`list-item sub-item ${checkMenuItemActive(
+                  '/games/report',
+                )}`}
+                onClick={() => handleClickMenu('/games/report')}
+              >
+                <ListItemIcon>
+                  <IconMenuReport />
+                </ListItemIcon>
+                {toggleSidebar && (
+                  <ListItemText
+                    className="sub-menu-text"
+                    inset
+                    primary="Game Report"
+                  />
+                )}
+              </ListItem>
+              <ListItem
+                className={`list-item sub-item ${checkMenuItemActive(
+                  '/games/reward',
+                )}`}
+                onClick={() => handleClickMenu('/games/reward')}
+              >
+                <ListItemIcon>
+                  <IconMenuReward />
+                </ListItemIcon>
+                {toggleSidebar && (
+                  <ListItemText
+                    className="sub-menu-text"
+                    inset
+                    primary="Reward Points"
+                  />
+                )}
+              </ListItem>
+            </List>
+          </Collapse>
+        )}
+
+        <ListItem
+          className={`list-item ${checkMenuItemActive('/lotteries')}`}
+          onClick={() => handleClickMenu('/lotteries')}
+        >
           <ListItemIcon>
-            <img src={iconLottery} alt="" />
+            <IconMenuLottery />
           </ListItemIcon>
-          <ListItemText primary="Lotteries" />
+          {toggleSidebar && <ListItemText primary="Lotteries" />}
         </ListItem>
 
-        <ListItem>
+        <ListItem
+          className={`list-item ${checkMenuItemActive('/sports')}`}
+          onClick={() => handleClickMenu('/sports')}
+        >
           <ListItemIcon>
-            <img src={iconSport} alt="" />
+            <IconMenuSport />
           </ListItemIcon>
-          <ListItemText primary="Sports" />
+          {toggleSidebar && <ListItemText primary="Sports" />}
         </ListItem>
 
-        <div className="toggle" onClick={onToggleExpandGameMenu}></div>
+        <ToggleWrapper onClick={onToggleExpandSidebar}>
+          <img
+            src={iconToggle}
+            className={toggleSidebar ? 'expand' : 'collapse'}
+            alt="toggle"
+          />
+        </ToggleWrapper>
       </SidebarNav>
     </>
   );

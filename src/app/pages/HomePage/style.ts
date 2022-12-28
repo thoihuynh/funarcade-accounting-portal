@@ -32,6 +32,64 @@ export const CardWrapper = styled(Card)`
   }
 `;
 
+export const CardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px;
+
+  .left {
+    color: #020069;
+    font-weight: 700;
+
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+      justify-content: flex-start;
+
+      .big-title {
+        font-size: 32px;
+      }
+
+      .currency {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      height: 56px;
+      width: 56px;
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 12px;
+      color: #020069;
+      align-items: center;
+      text-transform: uppercase;
+    }
+  }
+`;
+
+interface PointerCss {
+  color: string;
+}
+
+export const Pointer = styled.span<PointerCss>`
+  background: ${props => props.color};
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+`;
+
 export const TableWrapper = styled.div`
   margin: 2rem 0;
   background: #ffffff;

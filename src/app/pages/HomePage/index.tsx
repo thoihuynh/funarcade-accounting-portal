@@ -7,6 +7,8 @@ import {
   CardWrapper,
   TableWrapper,
   CardContainer,
+  CardHeader,
+  Pointer,
 } from './style';
 import 'swiper/css';
 import {
@@ -20,8 +22,8 @@ import {
   TableRow,
 } from '@mui/material';
 import iconHexagon from 'app/images/icons/icon-hexagon.svg';
-// import iconWheel from 'app/images/icons/icon-wheel.svg';
-// import iconCup from 'app/images/icons/icon-cup.svg';
+import iconWheel from 'app/images/icons/icon-wheel.svg';
+import iconCup from 'app/images/icons/icon-cup.svg';
 
 function createData(label: string, fat: string, usdc: string) {
   return { label, fat, usdc };
@@ -33,6 +35,11 @@ const rows = [
   createData('Sports 50%', '245,121', '245,121'),
   createData('Total', '1,231,456', '1,231,456'),
 ];
+
+const CURRENCY_COLOR = {
+  FAT: '#5D3EEF',
+  USDC: '#00A3FF',
+};
 
 const HomePage = () => {
   return (
@@ -49,12 +56,26 @@ const HomePage = () => {
               <Grid container direction="column">
                 <Grid item>
                   <CardWrapper>
-                    <div className="header d-flex">
-                      <div className="value">
-                        <div className="big-text"></div>
+                    <CardHeader>
+                      <div className="left">
+                        <div className="row">
+                          <div className="big-title">848,721 </div>
+                          <span className="currency">fat</span>
+                          <Pointer color={CURRENCY_COLOR.FAT} />
+                        </div>
+                        <div className="row">
+                          <div className="big-title">1,848,721 </div>
+                          <span className="currency">usdc</span>
+                          <Pointer color={CURRENCY_COLOR.USDC} />
+                        </div>
                       </div>
-                      <img src={iconHexagon} alt="" />
-                    </div>
+
+                      <div className="right">
+                        <img src={iconHexagon} alt="" />
+                        <p>games</p>
+                      </div>
+                    </CardHeader>
+
                     <div className="content">{/* chart */}</div>
                   </CardWrapper>
                 </Grid>
@@ -64,8 +85,27 @@ const HomePage = () => {
               <Grid container direction="column">
                 <Grid item>
                   <CardWrapper>
-                    <div className="header"></div>
-                    <div className="content"></div>
+                    <CardHeader>
+                      <div className="left">
+                        <div className="row">
+                          <div className="big-title">848,721 </div>
+                          <span className="currency">fat</span>
+                          <Pointer color={CURRENCY_COLOR.FAT} />
+                        </div>
+                        <div className="row">
+                          <div className="big-title">1,848,721 </div>
+                          <span className="currency">usdc</span>
+                          <Pointer color={CURRENCY_COLOR.USDC} />
+                        </div>
+                      </div>
+
+                      <div className="right">
+                        <img src={iconWheel} alt="" />
+                        <p>lotteries</p>
+                      </div>
+                    </CardHeader>
+
+                    <div className="content">{/* chart */}</div>
                   </CardWrapper>
                 </Grid>
               </Grid>
@@ -74,8 +114,27 @@ const HomePage = () => {
               <Grid container direction="column">
                 <Grid item>
                   <CardWrapper>
-                    <div className="header"></div>
-                    <div className="content"></div>
+                    <CardHeader>
+                      <div className="left">
+                        <div className="row">
+                          <div className="big-title">848,721 </div>
+                          <span className="currency">fat</span>
+                          <Pointer color={CURRENCY_COLOR.FAT} />
+                        </div>
+                        <div className="row">
+                          <div className="big-title">1,848,721 </div>
+                          <span className="currency">usdc</span>
+                          <Pointer color={CURRENCY_COLOR.USDC} />
+                        </div>
+                      </div>
+
+                      <div className="right">
+                        <img src={iconCup} alt="" />
+                        <p>sports</p>
+                      </div>
+                    </CardHeader>
+
+                    <div className="content">{/* chart */}</div>
                   </CardWrapper>
                 </Grid>
               </Grid>
