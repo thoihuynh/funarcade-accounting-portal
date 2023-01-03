@@ -36,7 +36,11 @@ const Sidebar = () => {
   const onToggleExpandSidebar = () => setToggleSidebar(!toggleSidebar);
 
   const handleClickMenu = (link: string) => {
-    setExpandMenuGame(false);
+    if (link !== '/games/report' && link !== '/games/reward') {
+      setExpandMenuGame(false);
+    } else {
+      setExpandMenuGame(expandMenuGame);
+    }
     navigate(`${link}`);
   };
 
@@ -54,12 +58,7 @@ const Sidebar = () => {
 
   const handleClickGame = (link: string) => {
     navigate('/games/report');
-    setExpandMenuGame(true);
-  };
-
-  const handleToggleGameMenu = () => {
     setExpandMenuGame(!expandMenuGame);
-    if (expandMenuGame) navigate('/games/report');
   };
 
   const expandMenu = () =>
@@ -75,7 +74,7 @@ const Sidebar = () => {
         width={toggleSidebar ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
       >
         <SidebarHeader>
-          <div className="logo-menu d-flex">
+          <div className="logo-menu d-flex" onClick={() => handleClickMenu('')}>
             <img src={logo} alt="logo" />
             {toggleSidebar && <span>funarcade</span>}
           </div>
@@ -100,21 +99,18 @@ const Sidebar = () => {
           }`}
           onMouseEnter={handlePopoverGameOpen}
           onMouseLeave={handlePopoverGameClose}
+          onClick={() => handleClickGame('/games/report')}
         >
           <ListItemIcon onClick={() => handleClickGame('/games/report')}>
             <IconMenuGame />
           </ListItemIcon>
           {toggleSidebar && (
             <>
-              <ListItemText
-                primary="Games"
-                onClick={() => handleClickGame('/games/report')}
-              />
+              <ListItemText primary="Games" />
               <img
                 src={expandMenuGame ? iconClose : iconOpen}
                 alt=""
                 className="toggle-menu-game"
-                onClick={handleToggleGameMenu}
               />
             </>
           )}
