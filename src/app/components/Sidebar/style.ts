@@ -39,6 +39,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
     .MuiListItemIcon-root {
       min-width: auto;
+      margin: 0 2px;
     }
 
     .MuiListItemText-root {
@@ -58,7 +59,12 @@ export const SidebarNav = styled(List)<CssPropsNav>`
     .sub-menu-text {
       span {
         font-size: 16px;
-        color: #b7c2e8;
+        color: #0f1d44;
+      }
+      svg {
+        path {
+          fill: #0f1d44;
+        }
       }
     }
 
@@ -73,6 +79,9 @@ export const SidebarNav = styled(List)<CssPropsNav>`
   .sub-item {
     height: 40px;
     gap: 8px;
+    &:hover {
+      background: #edecfb;
+    }
   }
 
   .toggle-menu-game {
@@ -103,6 +112,32 @@ export const SidebarNav = styled(List)<CssPropsNav>`
         &:hover {
           background: #7b61ff;
           cursor: pointer;
+        }
+      }
+
+      .list-item.sub-item {
+        width: calc(100% - 16px);
+        margin: 8px auto;
+
+        svg {
+          path {
+            fill: #0f1d44;
+          }
+        }
+
+        &:hover {
+          background: #edecfb;
+          svg {
+            path {
+              fill: #5d3eef;
+            }
+          }
+
+          .MuiListItemText-root {
+            span {
+              color: #5d3eef;
+            }
+          }
         }
       }
     }
@@ -157,7 +192,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
 export const SidebarHeader = styled.div`
   width: 100%;
-  padding: 0 28px;
+  padding: 4px 28px;
   .logo-menu {
     padding-top: 52px;
     margin-bottom: 20px;
@@ -212,14 +247,14 @@ export const HoverMenu = styled(Popover)`
   .sub-item {
     svg {
       path {
-        fill: #b7c2e8;
+        fill: #0f1d44;
       }
     }
 
     &.active {
       svg {
         path {
-          fill: #020069;k
+          fill: #5d3eef;
         }
       }
     }

@@ -8,9 +8,8 @@ import {
   TableCell,
   TableRow,
 } from '@mui/material';
-import { useSelector } from 'react-redux';
 import CommonSelect from '../CommonSelect';
-import { StyledTable } from './style';
+import { CommonTablePaginationWrapper, StyledTable } from './style';
 
 interface Props {
   HistoryHead?: any;
@@ -51,13 +50,16 @@ const CommonTable = memo((props: Props) => {
       ? Math.floor(totalCount / rowsPerPage)
       : Math.floor(totalCount / rowsPerPage) + 1;
 
+  const tableLoading = loading;
+
   return (
     <StyledTable>
       <Table>
         {HistoryHead && <HistoryHead />}
 
+        {!tableLoading && children}
 
-        {/* {tableLoading && ( */}
+        {tableLoading && (
           <TableBody>
             <TableRow>
               <TableCell colSpan={7} align="center">
@@ -65,10 +67,11 @@ const CommonTable = memo((props: Props) => {
               </TableCell>
             </TableRow>
           </TableBody>
-        {/* )} */}
+        )}
       </Table>
-      {/* {page !== undefined && page >= 0 && totalCount > 0 && !tableLoading && (
-        <div className="common-table-pagination">
+      {/* //Pagination */}
+      {page !== undefined && page >= 0 && totalCount > 0 && !tableLoading && (
+        <CommonTablePaginationWrapper>
           <div className="left-side">
             <div>Showing </div>
             <CommonSelect
@@ -84,7 +87,7 @@ const CommonTable = memo((props: Props) => {
                 </MenuItem>
               ))}
             </CommonSelect>
-            <span>in {totalCount} entries</span>
+            <span>results per page</span>
           </div>
 
           <div className="right-side">
@@ -98,8 +101,8 @@ const CommonTable = memo((props: Props) => {
               onChange={handleChangePage}
             />
           </div>
-        </div>
-      )} */}
+        </CommonTablePaginationWrapper>
+      )}
     </StyledTable>
   );
 });

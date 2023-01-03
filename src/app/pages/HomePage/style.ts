@@ -16,19 +16,86 @@ export const HomepageWrap = styled.div`
     background-size: cover;
     background-position: center;
   }
+
+  .row {
+    justify-content: space-between;
+    margin-bottom: 8px;
+    .title {
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+      font-size: ${FONT_SIZE_STYLES.LARGE};
+      font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+    }
+
+    .reward {
+      align-items: end;
+
+      gap: 4px;
+      img {
+        height: 48px;
+      }
+      label {
+        font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+        font-size: ${FONT_SIZE_STYLES.DEFAULT};
+        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+        margin: 0;
+      }
+    }
+  }
+
+  .date-group-btn {
+    .date-btn {
+      width: 160px;
+      height: 48px;
+      background: #ffffff;
+      box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
+      border-radius: 32px;
+      border: none;
+      margin-left: 1em;
+      outline: none;
+
+      font-weight: ${FONT_WEIGHT_STYLES.THIN};
+      font-size: ${FONT_SIZE_STYLES.DEFAULT};
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &.active {
+        border: 1px solid #5d3eef;
+        box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
+      }
+    }
+  }
 `;
 
 export const CardContainer = styled.div`
-  margin: 1.5rem 0;
+  margin: 2rem 0;
 `;
 
 export const CardWrapper = styled(Card)`
   background: #ffffff;
-  height: 320px;
-
+  min-height: 360px;
+  height: 100%;
   &.MuiPaper-root {
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
     border-radius: 32px;
+  }
+
+  .content {
+    .echarts-for-react {
+      height: 280p !important;
+      padding: 0 16px 16px 16px;
+    }
+    .chart-tooltip {
+      font-weight: 400;
+      font-size: ${FONT_SIZE_STYLES.TINY};
+      color: #020069;
+    }
   }
 `;
 
@@ -37,8 +104,8 @@ export const CardHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  padding: 24px;
-
+  padding: 0 24px 0 24px;
+  transform: translateY(20px);
   .left {
     color: #020069;
     font-weight: 700;

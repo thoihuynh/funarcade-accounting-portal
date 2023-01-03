@@ -134,23 +134,22 @@ export const CustomGlobalStyles = createGlobalStyle`
 
   .popover-menu {
     >.MuiPaper-root {
-      width: 200px;
+      width: 208px;
       border-radius: 24px;
       box-shadow: none;
       left: 200px;
       li {
         height: 48px;
         gap: 8px;
+
+        width: calc(100% - 16px);
+        margin: 8px auto;
+
+        border-radius: 24px;
+
+
         &:hover {
-          cursor: pointer;
-          span {
-            color: #020069;
-          }
-          svg {
-            path {
-              fill: #020069;
-            }
-          }
+          background: #edecfb;
         }
       }
       .MuiListItemText-root{
@@ -158,7 +157,7 @@ export const CustomGlobalStyles = createGlobalStyle`
         span {
           font-weight: 700;
           font-size: 16px;
-          color: #b7c2e8;
+          color: #0f1d44;
         }
       }
       .MuiListItemIcon-root {
@@ -168,7 +167,7 @@ export const CustomGlobalStyles = createGlobalStyle`
       li.active {
         .MuiListItemText-root{
           span {
-            color: #020069;
+            color: #5d3eef;
           }
         }
       }

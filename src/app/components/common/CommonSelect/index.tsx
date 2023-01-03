@@ -90,7 +90,7 @@ const CommonSelect = (props: Props) => {
         MenuProps={{
           PaperProps: {
             style: {
-              backgroundColor: 'var(--global--background-color-2)',
+              backgroundColor: '#5d3eef',
               color: 'white',
               borderRadius: childrenBorderRadius ?? 8,
             },

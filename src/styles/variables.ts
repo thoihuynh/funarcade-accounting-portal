@@ -18,6 +18,7 @@ export const BUTTON_STYLES = {
 };
 
 export const FONT_SIZE_STYLES = {
+  TINY: '12px',
   DEFAULT: '16px',
   SMALL: '20px',
   MEDIUM: '24px',
@@ -38,4 +39,5 @@ export const COLOR_STYLES = {
   TEXT_MAIN_COLOR_LIGHT: '#B7C2E8',
   TEXT_SECONDARY_COLOR: '#0F2743',
   BORDER_COLOR: '#D9E2EC',
+  WHITE_COLOR: '#FFFFFF',
 };

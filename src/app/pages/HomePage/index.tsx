@@ -1,16 +1,5 @@
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-
-import CustomBody from 'app/components/CustomBody';
-
-import {
-  HomepageWrap,
-  CardWrapper,
-  TableWrapper,
-  CardContainer,
-  CardHeader,
-  Pointer,
-} from './style';
-import 'swiper/css';
 import {
   Grid,
   Paper,
@@ -21,9 +10,25 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import ReactEcharts from 'echarts-for-react';
+import { Dayjs } from 'dayjs';
+import moment from 'moment';
+
 import iconHexagon from 'app/images/icons/icon-hexagon.svg';
 import iconWheel from 'app/images/icons/icon-wheel.svg';
 import iconCup from 'app/images/icons/icon-cup.svg';
+import IconHat from 'app/images/icons/hat.svg';
+
+import 'swiper/css';
+import {
+  HomepageWrap,
+  CardWrapper,
+  TableWrapper,
+  CardContainer,
+  CardHeader,
+  Pointer,
+} from './style';
+import CustomBody from 'app/components/CustomBody';
 
 function createData(label: string, fat: string, usdc: string) {
   return { label, fat, usdc };
@@ -41,7 +46,70 @@ const CURRENCY_COLOR = {
   USDC: '#00A3FF',
 };
 
+const optionChart = {
+  // title: {
+  //   text: 'Stacked Line',
+  // },
+  tooltip: {
+    trigger: 'axis',
+    formatter: params => {
+      return `<div class="chart-tooltip">
+                P/L: ${params[0].value} ${params[0].seriesName}<br />
+                P/L: ${params[1].value}: ${params[1].seriesName}<br />
+                Date: 07/10/2022 
+                </div>`;
+    },
+  },
+  // legend: {
+  //   data: ['Email', 'Union Ads'],
+  // },
+  grid: {
+    left: '2%',
+    right: '8%',
+    bottom: '2%',
+    containLabel: true,
+  },
+
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['1 - 7', '8 - 14', '15 - 21', '22 - 28', '29 - 31'],
+  },
+  yAxis: [
+    {
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}k',
+      },
+    },
+  ],
+  series: [
+    {
+      name: 'FAT',
+      type: 'line',
+      data: [120, 132, 101, 134, 90],
+      lineStyle: { color: CURRENCY_COLOR.FAT },
+      itemStyle: { color: CURRENCY_COLOR.FAT },
+    },
+    {
+      name: 'USDC',
+      type: 'line',
+      data: [220, 182, 191, 234, 290],
+      lineStyle: { color: CURRENCY_COLOR.USDC },
+      itemStyle: { color: CURRENCY_COLOR.USDC },
+    },
+  ],
+};
+
 const HomePage = () => {
+  // const [value, setValue] = React.useState<Dayjs | null>(null);
+
+  const [typeDate, setTypeDate] = useState('current');
+
+  const handleOnClickTypeDate = (type: string) => {
+    setTypeDate(type);
+  };
+
   return (
     <HomepageWrap className="full_height_page">
       <Helmet>
@@ -50,6 +118,34 @@ const HomePage = () => {
       </Helmet>
 
       <CustomBody>
+        <div className="row d-flex">
+          <div className="reward d-flex">
+            <img src={IconHat} alt="" />
+            <label htmlFor="">
+              Welcome To Funarcade <br />
+              Accounting Portal
+            </label>
+          </div>
+
+          <div className="date-group-btn">
+            <button
+              className={`date-btn ${typeDate === 'pre' ? 'active' : ''}`}
+              onClick={() => handleOnClickTypeDate('pre')}
+            >
+              {moment()
+                .subtract(1, 'months')
+                .startOf('month')
+                .format('MMMM YYYY')}
+            </button>
+            <button
+              className={`date-btn ${typeDate === 'current' ? 'active' : ''}`}
+              onClick={() => handleOnClickTypeDate('current')}
+            >
+              {moment().format('MMMM YYYY')}
+            </button>
+          </div>
+        </div>
+
         <CardContainer>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
@@ -76,7 +172,9 @@ const HomePage = () => {
                       </div>
                     </CardHeader>
 
-                    <div className="content">{/* chart */}</div>
+                    <div className="content">
+                      <ReactEcharts option={optionChart} />
+                    </div>
                   </CardWrapper>
                 </Grid>
               </Grid>
@@ -104,8 +202,9 @@ const HomePage = () => {
                         <p>lotteries</p>
                       </div>
                     </CardHeader>
-
-                    <div className="content">{/* chart */}</div>
+                    <div className="content">
+                      <ReactEcharts option={optionChart} />
+                    </div>
                   </CardWrapper>
                 </Grid>
               </Grid>
@@ -133,8 +232,9 @@ const HomePage = () => {
                         <p>sports</p>
                       </div>
                     </CardHeader>
-
-                    <div className="content">{/* chart */}</div>
+                    <div className="content">
+                      <ReactEcharts option={optionChart} />
+                    </div>
                   </CardWrapper>
                 </Grid>
               </Grid>
