@@ -10,6 +10,7 @@ import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 // import { Dayjs } from 'dayjs';
 import { useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
+import DateRange from 'app/components/DateRange';
 
 // interface TableModel {
 //   gameName: string;
@@ -96,6 +97,10 @@ const GameReportPage = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalCount] = useState(10);
 
+  const handleChangeTypeDate = (type: string) => {
+    console.log(type);
+  };
+
   return (
     <GameReportWrapper>
       <Helmet>
@@ -109,18 +114,9 @@ const GameReportPage = () => {
             <img src={iconCurrency} alt="" />
             <label htmlFor="">Current Reward Points: 1,000,001</label>
           </div>
-          <div></div>
-          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              views={['month']}
-              label="Year and Month"
-              value={value}
-              onChange={newValue => {
-                setValue(newValue);
-              }}
-              renderInput={params => <TextField {...params} />}
-            />
-          </LocalizationProvider> */}
+          <DateRange
+            clickTypeDate={(value: string) => handleChangeTypeDate(value)}
+          />
         </div>
 
         <TableWrapper>

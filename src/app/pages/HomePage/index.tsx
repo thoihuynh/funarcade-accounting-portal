@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   Grid,
@@ -11,8 +10,6 @@ import {
   TableRow,
 } from '@mui/material';
 import ReactEcharts from 'echarts-for-react';
-import { Dayjs } from 'dayjs';
-import moment from 'moment';
 
 import iconHexagon from 'app/images/icons/icon-hexagon.svg';
 import iconWheel from 'app/images/icons/icon-wheel.svg';
@@ -29,6 +26,7 @@ import {
   Pointer,
 } from './style';
 import CustomBody from 'app/components/CustomBody';
+import DateRange from 'app/components/DateRange';
 
 function createData(label: string, fat: string, usdc: string) {
   return { label, fat, usdc };
@@ -61,7 +59,7 @@ const optionChart = {
     },
   },
   // legend: {
-  //   data: ['Email', 'Union Ads'],
+  //   data: ['FAT', 'USDC'],
   // },
   grid: {
     left: '2%',
@@ -104,10 +102,8 @@ const optionChart = {
 const HomePage = () => {
   // const [value, setValue] = React.useState<Dayjs | null>(null);
 
-  const [typeDate, setTypeDate] = useState('current');
-
-  const handleOnClickTypeDate = (type: string) => {
-    setTypeDate(type);
+  const handleChangeTypeDate = (type: string) => {
+    console.log(type);
   };
 
   return (
@@ -127,23 +123,9 @@ const HomePage = () => {
             </label>
           </div>
 
-          <div className="date-group-btn">
-            <button
-              className={`date-btn ${typeDate === 'pre' ? 'active' : ''}`}
-              onClick={() => handleOnClickTypeDate('pre')}
-            >
-              {moment()
-                .subtract(1, 'months')
-                .startOf('month')
-                .format('MMMM YYYY')}
-            </button>
-            <button
-              className={`date-btn ${typeDate === 'current' ? 'active' : ''}`}
-              onClick={() => handleOnClickTypeDate('current')}
-            >
-              {moment().format('MMMM YYYY')}
-            </button>
-          </div>
+          <DateRange
+            clickTypeDate={(value: string) => handleChangeTypeDate(value)}
+          />
         </div>
 
         <CardContainer>
