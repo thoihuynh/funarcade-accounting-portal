@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {
   COLOR_STYLES,
   FONT_SIZE_STYLES,
+  FONT_WEIGHT_STYLES,
   TRANSITION_TIME,
 } from 'styles/variables';
 
@@ -27,7 +28,7 @@ export const LanguageWrap = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 500;
+    font-weight: ${FONT_WEIGHT_STYLES.MEDIUM};
 
     color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
 

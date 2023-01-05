@@ -16,7 +16,7 @@ export const StyledTable = styled(TableContainer)`
   }
 
   table {
-    background: #ffffff;
+    background: ${COLOR_STYLES.WHITE_COLOR};
     box-shadow: 0px 4px 10px rgba(179, 196, 217, 0.3);
     border-radius: 24px;
 
@@ -76,7 +76,7 @@ export const CommonTablePaginationWrapper = styled.div`
   margin: 32px 0;
 
   color: #0f1d44;
-  font-size: 16px;
+  font-size: ${FONT_SIZE_STYLES.DEFAULT};
   .page-size {
     min-width: 52px;
   }
@@ -89,7 +89,7 @@ export const CommonTablePaginationWrapper = styled.div`
         background: transparent;
       }
       .Mui-selected {
-        background: #5d3eef;
+        background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
         border-radius: 16px;
         color: #fff;
       }
@@ -103,7 +103,7 @@ export const CommonTablePaginationWrapper = styled.div`
 
     .MuiInputBase-root {
       height: 32px;
-      background: #5d3eef;
+      background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
       border-radius: 16px;
       border: none;
       svg {

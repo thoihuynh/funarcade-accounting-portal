@@ -27,6 +27,7 @@ import {
 } from './style';
 import CustomBody from 'app/components/CustomBody';
 import DateRange from 'app/components/DateRange';
+import { COLOR_STYLES } from 'styles/variables';
 
 function createData(label: string, fat: string, usdc: string) {
   return { label, fat, usdc };
@@ -40,7 +41,7 @@ const rows = [
 ];
 
 const CURRENCY_COLOR = {
-  FAT: '#5D3EEF',
+  FAT: COLOR_STYLES.BACKGROUND_MAIN_COLOR,
   USDC: '#00A3FF',
 };
 

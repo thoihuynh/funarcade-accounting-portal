@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from '@mui/material';
+import { FONT_WEIGHT_STYLES } from 'styles/variables';
 
 const CustomTooltip = ({ title, children, ...props }) => (
   <Tooltip
@@ -13,7 +14,7 @@ const CustomTooltip = ({ title, children, ...props }) => (
           background: '#ffff',
           borderRadius: '12px',
           padding: '4px 12px',
-          fontWeight: 700,
+          fontWeight: FONT_WEIGHT_STYLES.BOLD,
         },
       },
     }}

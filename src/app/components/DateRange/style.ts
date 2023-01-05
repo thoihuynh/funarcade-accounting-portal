@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   .date-btn {
     width: 160px;
     height: 48px;
-    background: #ffffff;
+    background: ${COLOR_STYLES.WHITE_COLOR};
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
     border-radius: 32px;
     border: none;
@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
     }
 
     &.active {
-      border: 1px solid #5d3eef;
+      border: 1px solid ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
       box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
     }
   }

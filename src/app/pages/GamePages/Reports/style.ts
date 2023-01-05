@@ -19,7 +19,7 @@ export const GameReportWrapper = styled.div`
       align-items: center
       gap: 4px;
 
-      background: #5D3EEF;
+      background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
       box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
       border-radius: 32px;
       padding-right: 16px;
@@ -44,5 +44,6 @@ interface NumberProps {
 }
 
 export const NumberWrapper = styled.span<NumberProps>`
-  color: ${props => (props.value < 0 ? '#DE1A3A' : '#0F2743')};
+  color: ${props =>
+    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
 `;

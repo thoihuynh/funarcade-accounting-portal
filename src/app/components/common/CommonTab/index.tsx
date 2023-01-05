@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
+import { FONT_SIZE_STYLES } from 'styles/variables';
 
 interface Props {
   currentTab: number | undefined;
@@ -23,7 +24,7 @@ const CustomTabs = styled(Tabs)<CssProps>`
     text-transform: none;
     min-width: inherit;
     padding: 0;
-    font-size: 16px;
+    font-size: ${FONT_SIZE_STYLES.DEFAULT};
     font-weight: bold;
 
     &:not(:last-child) {

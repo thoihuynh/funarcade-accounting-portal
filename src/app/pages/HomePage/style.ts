@@ -48,7 +48,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardWrapper = styled(Card)`
-  background: #ffffff;
+  background: ${COLOR_STYLES.WHITE_COLOR};
   min-height: 360px;
   height: 100%;
   &.MuiPaper-root {
@@ -62,9 +62,9 @@ export const CardWrapper = styled(Card)`
       padding: 0 16px 16px 16px;
     }
     .chart-tooltip {
-      font-weight: 400;
+      font-weight: ${FONT_WEIGHT_STYLES.THIN};
       font-size: ${FONT_SIZE_STYLES.TINY};
-      color: #020069;
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
     }
   }
 `;
@@ -77,8 +77,8 @@ export const CardHeader = styled.div`
   padding: 0 24px 0 24px;
   transform: translateY(20px);
   .left {
-    color: #020069;
-    font-weight: 700;
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+    font-weight: ${FONT_WEIGHT_STYLES.BOLD};
 
     .row {
       display: flex;
@@ -87,11 +87,11 @@ export const CardHeader = styled.div`
       justify-content: flex-start;
 
       .big-title {
-        font-size: 32px;
+        font-size: ${FONT_SIZE_STYLES.LARGE};
       }
 
       .currency {
-        font-size: 12px;
+        font-size: ${FONT_SIZE_STYLES.TINY};
         text-transform: uppercase;
       }
     }
@@ -107,9 +107,9 @@ export const CardHeader = styled.div`
     }
 
     p {
-      font-weight: 700;
-      font-size: 12px;
-      color: #020069;
+      font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+      font-size: ${FONT_SIZE_STYLES.TINY};
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       align-items: center;
       text-transform: uppercase;
     }
@@ -129,7 +129,7 @@ export const Pointer = styled.span<PointerCss>`
 
 export const TableWrapper = styled.div`
   margin: 2rem 0;
-  background: #ffffff;
+  background: ${COLOR_STYLES.WHITE_COLOR};
   border-radius: 32px;
 
   .MuiPaper-root {

@@ -19,7 +19,7 @@ export const GameRewardWrapper = styled.div`
       align-items: center
       gap: 4px;
 
-      background: #5D3EEF;
+      background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
       box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
       border-radius: 32px;
       padding-right: 16px;

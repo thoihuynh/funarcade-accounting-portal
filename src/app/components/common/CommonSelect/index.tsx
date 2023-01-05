@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ArrowDown from '../../icons/DownArrow';
+import { COLOR_STYLES } from 'styles/variables';
 
 interface Props {
   onChange?: (x: string) => void;
@@ -90,7 +91,7 @@ const CommonSelect = (props: Props) => {
         MenuProps={{
           PaperProps: {
             style: {
-              backgroundColor: '#5d3eef',
+              backgroundColor: COLOR_STYLES.BACKGROUND_MAIN_COLOR,
               color: 'white',
               borderRadius: childrenBorderRadius ?? 8,
             },

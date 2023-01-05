@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import {
+  COLOR_STYLES,
   FONT_SIZE_STYLES,
   FONT_WEIGHT_STYLES,
   TRANSITION_TIME,
@@ -155,8 +156,8 @@ export const CustomGlobalStyles = createGlobalStyle`
       .MuiListItemText-root{
         padding-left:0;
         span {
-          font-weight: 700;
-          font-size: 16px;
+          font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+          font-size: ${FONT_SIZE_STYLES.DEFAULT};
           color: #0f1d44;
         }
       }
@@ -167,7 +168,7 @@ export const CustomGlobalStyles = createGlobalStyle`
       li.active {
         .MuiListItemText-root{
           span {
-            color: #5d3eef;
+            color: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
           }
         }
       }

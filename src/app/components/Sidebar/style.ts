@@ -24,7 +24,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
   height: 100%;
   width: ${props => props.width}px;
 
-  transition: width 350ms;
+  transition: width 350ms ease-out;
 
   .list-item {
     height: 64px;
@@ -45,14 +45,15 @@ export const SidebarNav = styled(List)<CssPropsNav>`
     .MuiListItemText-root {
       padding-left: 4px;
       span {
-        font-weight: 700;
+        display: inline-block;
+        font-weight: ${FONT_WEIGHT_STYLES.BOLD};
         font-size: 24px;
       }
     }
 
     svg {
       path {
-        fill: #b7c2e8;
+        fill: ${COLOR_STYLES.TEXT_MAIN_COLOR_LIGHT};
       }
     }
 
@@ -70,7 +71,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
     &:hover {
       background: #7b61ff;
-      color: #ffffff;
+      color: ${COLOR_STYLES.WHITE_COLOR};
       border-radius: 40px;
       cursor: pointer;
     }
@@ -97,12 +98,12 @@ export const SidebarNav = styled(List)<CssPropsNav>`
   .collapse-content.active-expand {
     display: block;
     > div {
-      background: #ffffff;
+      background: ${COLOR_STYLES.WHITE_COLOR};
       border-radius: 0 0 24px 24px;
       width: calc(100% - 56px);
       margin: 0 auto;
 
-      color: #020069;
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
 
       .list-item {
         width: 100%;
@@ -129,13 +130,13 @@ export const SidebarNav = styled(List)<CssPropsNav>`
           background: #edecfb;
           svg {
             path {
-              fill: #5d3eef;
+              fill: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
             }
           }
 
           .MuiListItemText-root {
             span {
-              color: #5d3eef;
+              color: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
             }
           }
         }
@@ -144,29 +145,29 @@ export const SidebarNav = styled(List)<CssPropsNav>`
   }
 
   .expanded-item.active {
-    background: #ffffff;
+    background: ${COLOR_STYLES.WHITE_COLOR};
     border-radius: 24px 24px 0 0;
 
     margin-top: 4px;
-    color: #020069;
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
 
     &:hover {
-      background: #ffffff;
+      background: ${COLOR_STYLES.WHITE_COLOR};
       border-radius: 24px 24px 0 0;
     }
   }
 
   .list-item.active {
     background: #ffff;
-    color: #020069;
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
     svg {
       path {
-        fill: #020069;
+        fill: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       }
     }
     .sub-menu-text {
       span {
-        color: #020069;
+        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       }
     }
   }
@@ -198,7 +199,7 @@ export const SidebarHeader = styled.div`
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: ${FONT_WEIGHT_STYLES.BOLD};
-    color: #ffffff;
+    color: ${COLOR_STYLES.WHITE_COLOR};
     cursor: pointer;
 
     justify-content: center;
@@ -254,7 +255,7 @@ export const HoverMenu = styled(Popover)`
     &.active {
       svg {
         path {
-          fill: #5d3eef;
+          fill: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
         }
       }
     }
