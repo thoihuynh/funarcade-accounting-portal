@@ -2,27 +2,10 @@ import CustomBody from 'app/components/CustomBody';
 import { Helmet } from 'react-helmet-async';
 import { TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { GameReportWrapper, NumberWrapper, TableWrapper } from './style';
-import iconHexagon from 'app/images/icons/icon-hexagon.svg';
-
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import { TextField } from '@mui/material';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { Dayjs } from 'dayjs';
+import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
-import { Link } from 'react-router-dom';
-
-// interface TableModel {
-//   gameName: string;
-//   gameNumber: string;
-//   gameDateTime: string;
-//   betAmountFAT: number;
-//   betAmountUSDC: number;
-//   plFAT: number;
-//   plUSDC: number;
-// }
 
 function createData(
   gameName: string,
@@ -92,8 +75,7 @@ const rows = [
   ),
 ];
 
-const GameReportPage = () => {
-  // const [value, setValue] = React.useState<Dayjs | null>(null);
+const GameReportDetail = () => {
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -113,10 +95,8 @@ const GameReportPage = () => {
       <CustomBody>
         <div className="d-flex row">
           <div className="d-flex reward">
-            <img src={iconHexagon} alt="" />
-            <label htmlFor="">
-              This is Report of Profit/ Loss <br /> In Your Game Application
-            </label>
+            <img src={iconCurrency} alt="" />
+            <label htmlFor="">Current Reward Points: 1,000,001</label>
           </div>
           <DateRange
             clickTypeDate={(value: string) => handleChangeTypeDate(value)}
@@ -138,11 +118,11 @@ const GameReportPage = () => {
                 <TableCell className="small-title">Game Number</TableCell>
                 <TableCell className="small-title">Game Date & Time</TableCell>
                 <TableCell className="small-title" align="left">
-                  Volume
+                  Bet amount
                   <br /> (FAT)
                 </TableCell>
                 <TableCell className="small-title" align="left">
-                  Volume <br />
+                  Bet amount <br />
                   (USDC)
                 </TableCell>
                 <TableCell className="small-title" align="left">
@@ -156,9 +136,7 @@ const GameReportPage = () => {
             <TableBody>
               {rows.map(row => (
                 <TableRow key={row.gameName}>
-                  <TableCell>
-                    <Link to={'/crash'}>{row.gameName}</Link>
-                  </TableCell>
+                  <TableCell>{row.gameName}</TableCell>
                   <TableCell>{row.gameNumber}</TableCell>
                   <TableCell>{row.gameDateTime}</TableCell>
 
@@ -184,6 +162,24 @@ const GameReportPage = () => {
               ))}
               <TableRow>
                 <TableCell className="small-title" align="left" colSpan={3}>
+                  Total For This Page:
+                </TableCell>
+
+                <TableCell className="small-title">
+                  <NumberWrapper value={100}>100</NumberWrapper>
+                </TableCell>
+                <TableCell className="small-title">
+                  0<NumberWrapper value={0}>0</NumberWrapper>
+                </TableCell>
+                <TableCell className="small-title">
+                  <NumberWrapper value={-100}>-100</NumberWrapper>
+                </TableCell>
+                <TableCell className="small-title">
+                  <NumberWrapper value={100}>100 </NumberWrapper>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="small-title" align="left" colSpan={3}>
                   Total For Selected Date:
                 </TableCell>
 
@@ -200,4 +196,4 @@ const GameReportPage = () => {
   );
 };
 
-export default GameReportPage;
+export default GameReportDetail;

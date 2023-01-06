@@ -5,7 +5,7 @@ import {
   FONT_WEIGHT_STYLES,
 } from 'styles/variables';
 
-export const GameRewardWrapper = styled.div`
+export const GameReportWrapper = styled.div`
   .row {
     justify-content: space-between;
     margin-bottom: 8px;
@@ -18,6 +18,7 @@ export const GameRewardWrapper = styled.div`
     .reward {
       align-items: center
       gap: 4px;
+
       background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
       box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
       border-radius: 32px;
@@ -26,26 +27,35 @@ export const GameRewardWrapper = styled.div`
       img {
         height: 48px;
       }
-    }
-
-    .incentive {
-      height: 48px;
-      align-items: center;
-      background: ${COLOR_STYLES.WHITE_COLOR};
-      box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
-      border-radius: 32px;
-      padding: 0 16px;
-      margin-left: 16px;
-
       label {
-        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+        font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+        font-size: ${FONT_SIZE_STYLES.DEFAULT};
+        margin: 0 0 0 8px;
       }
     }
+  }
+`;
 
-    label {
-      font-weight: ${FONT_WEIGHT_STYLES.BOLD};
-      font-size: ${FONT_SIZE_STYLES.DEFAULT};
-      margin: 0 0 0 8px;
+export const TableWrapper = styled.div`
+  margin-top: 20px;
+
+  table {
+    tbody {
+      tr:nth-last-child(1) {
+        height: 48px;
+      }
+
+      tr:nth-last-child(1) {
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
+      }
     }
   }
+`;
+interface NumberProps {
+  value: number;
+}
+
+export const NumberWrapper = styled.span<NumberProps>`
+  color: ${props =>
+    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
 `;

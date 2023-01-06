@@ -39,15 +39,6 @@ export const StyledTable = styled(TableContainer)`
     }
 
     tbody {
-      tr:nth-last-child(1),
-      tr:nth-last-child(2) {
-        height: 48px;
-      }
-
-      tr:nth-last-child(2) {
-        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
-      }
-
       tr:last-child {
         td {
           border-bottom: none;

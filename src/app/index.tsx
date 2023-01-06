@@ -82,7 +82,7 @@ export function App() {
             <Route path="/games/reward" element={<GameRewardPage />} />
           </Route>
 
-          <Route path="" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
 

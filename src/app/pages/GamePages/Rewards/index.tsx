@@ -6,73 +6,66 @@ import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
-import { NumberWrapper, TableWrapper } from '../Reports/style';
+import { TableWrapper } from '../Reports/style';
 
 function createData(
-  gameName: string,
-  gameNumber: string,
-  gameDateTime: string,
-  betAmountFAT: number,
-  betAmountUSDC: number,
-  plFAT: number,
-  plUSDC: number,
+  userName: string,
+  volumeFAT: string,
+  volumeUSDC: string,
+  totalVolume: string,
+  tier: string,
+  rewardPoint: string,
 ) {
   return {
-    gameName,
-    gameNumber,
-    gameDateTime,
-    betAmountFAT,
-    betAmountUSDC,
-    plFAT,
-    plUSDC,
+    userName,
+    volumeFAT,
+    volumeUSDC,
+    totalVolume,
+    tier,
+    rewardPoint,
   };
 }
 
 const rows = [
   createData(
-    'Money Mountain',
-    '1g28s02h27s9xh3...',
-    '30/10/2022 - 20:00:10',
-    100,
-    0,
-    -50,
-    0,
+    'Arthur',
+    '234,122',
+    '234,122',
+    '234,122',
+    'Tier 5 : 2%',
+    '10,291',
   ),
   createData(
-    'Hilo',
-    '1g28s02h27s9xh3...',
-    '30/10/2022 - 20:00:10',
-    100,
-    0,
-    100,
-    0,
+    'Arthur',
+    '234,122',
+    '234,122',
+    '234,122',
+    'Tier 5 : 2%',
+    '10,291',
   ),
   createData(
-    'Blackjack',
-    '1g28s02h27s9xh3...',
-    '30/10/2022 - 20:00:10',
-    100,
-    0,
-    100,
-    0,
+    'Arthur',
+    '234,122',
+    '234,122',
+    '234,122',
+    'Tier 5 : 2%',
+    '10,291',
   ),
   createData(
-    'Dice',
-    '1g28s02h27s9xh3...',
-    '30/10/2022 - 20:00:10',
-    100,
-    0,
-    0,
-    -0,
+    'Arthur',
+    '234,122',
+    '234,122',
+    '234,122',
+    'Tier 5 : 2%',
+    '10,291',
   ),
   createData(
-    'Crash',
-    '1g28s02h27s9xh3...',
-    '30/10/2022 - 20:00:10',
-    100,
-    0,
-    -50,
-    0,
+    'Arthur',
+    '234,122',
+    '234,122',
+    '234,122',
+    'Tier 5 : 2%',
+    '10,291',
   ),
 ];
 
@@ -94,9 +87,15 @@ const GameRewardPage = () => {
 
       <CustomBody>
         <div className="d-flex row">
-          <div className="d-flex reward">
-            <img src={iconCurrency} alt="" />
-            <label htmlFor="">Current Reward Points: 1,000,001</label>
+          <div className="d-flex">
+            <div className="d-flex reward">
+              <img src={iconCurrency} alt="" />
+              <label htmlFor="">Current Reward Points: 1,000,001</label>
+            </div>
+
+            <div className="d-flex incentive">
+              <label htmlFor="">Incentive Pool: 1,000 FAT - 800 USDC</label>
+            </div>
           </div>
           <DateRange
             clickTypeDate={(value: string) => handleChangeTypeDate(value)}
@@ -114,80 +113,25 @@ const GameRewardPage = () => {
           >
             <TableHead>
               <TableRow>
-                <TableCell className="small-title">Game Name</TableCell>
-                <TableCell className="small-title">Game Number</TableCell>
-                <TableCell className="small-title">Game Date & Time</TableCell>
-                <TableCell className="small-title" align="left">
-                  Bet amount
-                  <br /> (FAT)
-                </TableCell>
-                <TableCell className="small-title" align="left">
-                  Bet amount <br />
-                  (USDC)
-                </TableCell>
-                <TableCell className="small-title" align="left">
-                  P/L(FAT)
-                </TableCell>
-                <TableCell className="small-title" align="left">
-                  P/L(USDC)
-                </TableCell>
+                <TableCell className="small-title">User Name</TableCell>
+                <TableCell className="small-title">Volume (FAT)</TableCell>
+                <TableCell className="small-title">Volume (USDC)</TableCell>
+                <TableCell className="small-title">Total Volume</TableCell>
+                <TableCell className="small-title">Tier</TableCell>
+                <TableCell className="small-title">Reward Points</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map(row => (
-                <TableRow key={row.gameName}>
-                  <TableCell>{row.gameName}</TableCell>
-                  <TableCell>{row.gameNumber}</TableCell>
-                  <TableCell>{row.gameDateTime}</TableCell>
-
-                  <TableCell>
-                    <NumberWrapper value={row.betAmountFAT}>
-                      {row.betAmountFAT}
-                    </NumberWrapper>
-                  </TableCell>
-                  <TableCell>
-                    <NumberWrapper value={row.betAmountUSDC}>
-                      {row.betAmountUSDC}
-                    </NumberWrapper>
-                  </TableCell>
-                  <TableCell>
-                    <NumberWrapper value={row.plFAT}>{row.plFAT}</NumberWrapper>
-                  </TableCell>
-                  <TableCell>
-                    <NumberWrapper value={row.plUSDC}>
-                      {row.plUSDC}
-                    </NumberWrapper>
-                  </TableCell>
+                <TableRow>
+                  <TableCell>{row.userName}</TableCell>
+                  <TableCell>{row.volumeFAT}</TableCell>
+                  <TableCell>{row.volumeUSDC}</TableCell>
+                  <TableCell>{row.totalVolume}</TableCell>
+                  <TableCell>{row.tier}</TableCell>
+                  <TableCell>{row.rewardPoint}</TableCell>
                 </TableRow>
               ))}
-              <TableRow>
-                <TableCell className="small-title" align="left" colSpan={3}>
-                  Total For This Page:
-                </TableCell>
-
-                <TableCell className="small-title">
-                  <NumberWrapper value={100}>100</NumberWrapper>
-                </TableCell>
-                <TableCell className="small-title">
-                  0<NumberWrapper value={0}>0</NumberWrapper>
-                </TableCell>
-                <TableCell className="small-title">
-                  <NumberWrapper value={-100}>-100</NumberWrapper>
-                </TableCell>
-                <TableCell className="small-title">
-                  <NumberWrapper value={100}>100 </NumberWrapper>
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="small-title" align="left" colSpan={3}>
-                  Total For Selected Date:
-                </TableCell>
-
-                <TableCell className="small-title">1,234,122</TableCell>
-                <TableCell className="small-title">1,234,122</TableCell>
-                <TableCell className="small-title">834,122</TableCell>
-                <TableCell className="small-title">834,122</TableCell>
-              </TableRow>
             </TableBody>
           </CommonTable>
         </TableWrapper>

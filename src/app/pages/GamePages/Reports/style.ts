@@ -18,10 +18,6 @@ export const GameReportWrapper = styled.div`
     .reward {
       align-items: center
       gap: 4px;
-
-      background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
-      box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
-      border-radius: 32px;
       padding-right: 16px;
 
       img {
@@ -30,6 +26,7 @@ export const GameReportWrapper = styled.div`
       label {
         font-weight: ${FONT_WEIGHT_STYLES.BOLD};
         font-size: ${FONT_SIZE_STYLES.DEFAULT};
+        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
         margin: 0 0 0 8px;
       }
     }
@@ -38,7 +35,20 @@ export const GameReportWrapper = styled.div`
 
 export const TableWrapper = styled.div`
   margin-top: 20px;
+
+  table {
+    tbody {
+      tr:nth-last-child(1) {
+        height: 48px;
+      }
+
+      tr:nth-last-child(1) {
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
+      }
+    }
+  }
 `;
+
 interface NumberProps {
   value: number;
 }
