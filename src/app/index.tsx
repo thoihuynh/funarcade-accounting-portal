@@ -78,8 +78,9 @@ export function App() {
         <Routes>
           <Route element={<AppPageLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/games/report" element={<GameReportPage />} />
-            <Route path="/games/reward" element={<GameRewardPage />} />
+            {/* <Route path="/games/report" element={<GameReportPage />} />
+            <Route path="/games/reward" element={<GameRewardPage />} /> */}
+            {/* <Route path="/games" element={<GamePage />} /> */}
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />
