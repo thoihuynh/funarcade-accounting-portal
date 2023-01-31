@@ -216,8 +216,8 @@ const Sidebar = () => {
         )}
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('/lotteries')}`}
-          onClick={() => handleClickMenu('/lotteries')}
+          className={`list-item ${checkMenuItemActive('')}`}
+          onClick={() => handleClickMenu('')}
         >
           <ListItemIcon>
             <IconMenuLottery />
@@ -226,8 +226,8 @@ const Sidebar = () => {
         </ListItem>
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('/sports')}`}
-          onClick={() => handleClickMenu('/sports')}
+          className={`list-item ${checkMenuItemActive('')}`}
+          onClick={() => handleClickMenu('')}
         >
           <ListItemIcon>
             <IconMenuSport />

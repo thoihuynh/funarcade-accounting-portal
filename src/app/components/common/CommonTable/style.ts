@@ -8,7 +8,7 @@ import {
 
 export const StyledTable = styled(TableContainer)`
   overflow: hidden;
-  padding: 8px;
+  // padding: 8px;
 
   .MuiTableCell-head {
     font-weight: bold;

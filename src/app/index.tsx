@@ -24,6 +24,9 @@ import { COLOR_STYLES } from 'styles/variables';
 import GameReportPage from './pages/GamePages/Reports';
 import GameRewardPage from './pages/GamePages/Rewards';
 import { useEffect } from 'react';
+import SearchListPage from './pages/HomePage/SearchListPage';
+import ReportDetailListPage from './pages/HomePage/ReportDetailListPage';
+import GameReportDetail from './pages/GamePages/Reports/ReportDetail';
 
 const key = 'app';
 
@@ -78,9 +81,20 @@ export function App() {
         <Routes>
           <Route element={<AppPageLayout />}>
             <Route path="/" element={<HomePage />} />
-            {/* <Route path="/games/report" element={<GameReportPage />} />
-            <Route path="/games/reward" element={<GameRewardPage />} /> */}
-            {/* <Route path="/games" element={<GamePage />} /> */}
+            <Route
+              path="/user-list-search/*"
+              element={<SearchListPage />}
+            ></Route>
+            <Route
+              path="/user-list-search/detail/*"
+              element={<ReportDetailListPage />}
+            ></Route>
+            <Route path="/games/report" element={<GameReportPage />} />
+            <Route
+              path="/games/report/:slugGame"
+              element={<GameReportDetail />}
+            />
+            <Route path="/games/reward" element={<GameRewardPage />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />

@@ -27,8 +27,6 @@ export const HomepageWrap = styled.div`
     }
 
     .reward {
-      align-items: end;
-
       gap: 4px;
       img {
         height: 48px;

@@ -16,10 +16,9 @@ export const GameRewardWrapper = styled.div`
     }
 
     .reward {
+      height: 48px;
       align-items: center
       gap: 4px;
-      background: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
-      box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
       border-radius: 32px;
       padding-right: 16px;
 
@@ -29,13 +28,9 @@ export const GameRewardWrapper = styled.div`
     }
 
     .incentive {
-      height: 48px;
       align-items: center;
-      background: ${COLOR_STYLES.WHITE_COLOR};
-      box-shadow: 0px 10px 20px rgb(179 196 217 / 30%);
       border-radius: 32px;
       padding: 0 16px;
-      margin-left: 16px;
 
       label {
         color: ${COLOR_STYLES.TEXT_MAIN_COLOR};

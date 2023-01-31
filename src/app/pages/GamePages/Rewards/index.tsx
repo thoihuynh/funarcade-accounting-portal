@@ -1,12 +1,22 @@
 import { GameRewardWrapper } from './style';
 import CustomBody from 'app/components/CustomBody';
 import { Helmet } from 'react-helmet-async';
-import { TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import {
+  Container,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from '@mui/material';
 import iconCurrency from 'app/images/icons/currencies/FAT.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
 import { TableWrapper } from '../Reports/style';
+import CommonField from 'app/components/common/CommonField';
+import SearchIcon from 'app/components/icons/SearchIcon';
+import LanguageSelect from 'app/components/LanguageSelect';
+import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 
 function createData(
   userName: string,
@@ -73,70 +83,98 @@ const GameRewardPage = () => {
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalCount] = useState(10);
+  const [searchInput, setSearchInput] = useState('');
+  const [tableData, setTableData] = useState<any>();
 
   const handleChangeTypeDate = (type: string) => {
     console.log(type);
   };
 
-  return (
-    <GameRewardWrapper>
-      <Helmet>
-        <title>Game Reward Page</title>
-        <meta name="description" content="Game report page" />
-      </Helmet>
+  useEffect(() => {
+    if (searchInput) {
+      const gameData = rows.filter(r => r.userName.includes(searchInput));
+      setTableData(gameData);
+    } else {
+      setTableData(rows);
+    }
+  }, [searchInput]);
 
-      <CustomBody>
-        <div className="d-flex row">
-          <div className="d-flex">
+  return (
+    <Container>
+      <div className="d-flex header-title">
+        <div className="title">Game Report Points</div>
+        <div className="d-flex">
+          <CommonField
+            type="text"
+            className={`search-input ${searchInput ? 'border-input' : ''}`}
+            name="search-input"
+            rightTextOrIcon={<SearchIcon />}
+            value={searchInput}
+            placeholder="Search by username"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setSearchInput(e.target.value);
+            }}
+          />
+          <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
+        </div>
+      </div>
+      <GameRewardWrapper>
+        <Helmet>
+          <title>Game Reward Page</title>
+          <meta name="description" content="Game report page" />
+        </Helmet>
+
+        <CustomBody>
+          <div className="d-flex row">
             <div className="d-flex reward">
               <img src={iconCurrency} alt="" />
-              <label htmlFor="">Current Reward Points: 1,000,001</label>
+              <div className="incentive">
+                <label htmlFor="">Incentive Pool: 1,000 FAT - 800 USDC</label>
+                <label htmlFor="">Current Reward Points: 1,000,001</label>
+              </div>
             </div>
 
-            <div className="d-flex incentive">
-              <label htmlFor="">Incentive Pool: 1,000 FAT - 800 USDC</label>
-            </div>
+            <DateRange
+              clickTypeDate={(value: string) => handleChangeTypeDate(value)}
+            />
           </div>
-          <DateRange
-            clickTypeDate={(value: string) => handleChangeTypeDate(value)}
-          />
-        </div>
 
-        <TableWrapper>
-          <CommonTable
-            totalCount={totalCount}
-            page={page}
-            setPage={setPage}
-            rowsPerPage={rowsPerPage}
-            setRowsPerPage={setRowsPerPage}
-            loading={false}
-          >
-            <TableHead>
-              <TableRow>
-                <TableCell className="small-title">User Name</TableCell>
-                <TableCell className="small-title">Volume (FAT)</TableCell>
-                <TableCell className="small-title">Volume (USDC)</TableCell>
-                <TableCell className="small-title">Total Volume</TableCell>
-                <TableCell className="small-title">Tier</TableCell>
-                <TableCell className="small-title">Reward Points</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map(row => (
+          <TableWrapper>
+            <CommonTable
+              totalCount={totalCount}
+              page={page}
+              setPage={setPage}
+              rowsPerPage={rowsPerPage}
+              setRowsPerPage={setRowsPerPage}
+              loading={false}
+            >
+              <TableHead>
                 <TableRow>
-                  <TableCell>{row.userName}</TableCell>
-                  <TableCell>{row.volumeFAT}</TableCell>
-                  <TableCell>{row.volumeUSDC}</TableCell>
-                  <TableCell>{row.totalVolume}</TableCell>
-                  <TableCell>{row.tier}</TableCell>
-                  <TableCell>{row.rewardPoint}</TableCell>
+                  <TableCell className="small-title">User Name</TableCell>
+                  <TableCell className="small-title">Volume (FAT)</TableCell>
+                  <TableCell className="small-title">Volume (USDC)</TableCell>
+                  <TableCell className="small-title">Total Volume</TableCell>
+                  <TableCell className="small-title">Tier</TableCell>
+                  <TableCell className="small-title">Reward Points</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </CommonTable>
-        </TableWrapper>
-      </CustomBody>
-    </GameRewardWrapper>
+              </TableHead>
+              <TableBody>
+                {tableData?.map(row => (
+                  <TableRow>
+                    <TableCell>{row.userName}</TableCell>
+                    <TableCell>{row.volumeFAT}</TableCell>
+                    <TableCell>{row.volumeUSDC}</TableCell>
+                    <TableCell>{row.totalVolume}</TableCell>
+                    <TableCell>{row.tier}</TableCell>
+                    <TableCell>{row.rewardPoint}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </CommonTable>
+          </TableWrapper>
+        </CustomBody>
+      </GameRewardWrapper>
+    </Container>
   );
 };
 

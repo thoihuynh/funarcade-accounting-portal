@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import {
   COLOR_STYLES,
   FONT_SIZE_STYLES,
@@ -83,6 +83,11 @@ export const CustomGlobalStyles = createGlobalStyle`
       background-color: var(--global--button-color) !important;
       border-radius: 20px !important;
     }
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    margin:0;
+    padding:0;
   }
 
   .input-copied {
@@ -174,4 +179,42 @@ export const CustomGlobalStyles = createGlobalStyle`
       }
     }
   }
+
+  .header-title {
+    justify-content: space-between;
+    .title {
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+      font-size: ${FONT_SIZE_STYLES.LARGE};
+      font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+
+      
+    }
+    @media (min-width: 768px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  h3 {
+    color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+  }
+
+  .search-input {
+    margin-right: 20px;
+  }
+
+  .border-input {
+    .input_wrap {
+      border: 1px solid #5D3EEF;
+    }
+  }
+`;
+
+interface NumberProps {
+  value: number;
+}
+
+export const NumberWrapper = styled.span<NumberProps>`
+  color: ${props =>
+    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
 `;

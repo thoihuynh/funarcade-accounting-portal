@@ -22,8 +22,4 @@ export const HeaderWrap = styled.div`
       font-weight: ${FONT_WEIGHT_STYLES.BOLD};
     }
   }
-
-  .search-input {
-    margin-right: 20px;
-  }
 `;
