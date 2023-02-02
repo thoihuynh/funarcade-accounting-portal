@@ -35,18 +35,6 @@ export const GameReportWrapper = styled.div`
 
 export const TableWrapper = styled.div`
   margin-top: 20px;
-
-  table {
-    tbody {
-      tr:nth-last-child(1) {
-        height: 48px;
-      }
-
-      tr:nth-last-child(1) {
-        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
-      }
-    }
-  }
 `;
 
 interface NumberProps {

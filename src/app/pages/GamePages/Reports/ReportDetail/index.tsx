@@ -216,7 +216,9 @@ const GameReportDetail = () => {
     if (gameData && gameData.data.length > 0) _tableData = gameData.data;
 
     if (searchInput)
-      _tableData = _tableData.filter(t => t.userName.includes(searchInput));
+      _tableData = _tableData.filter(t =>
+        t.userName?.toLowerCase().includes(searchInput.toLowerCase()),
+      );
 
     setTableData(_tableData);
   }, [slugGame, searchInput]);

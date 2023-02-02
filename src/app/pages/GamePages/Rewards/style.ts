@@ -25,15 +25,15 @@ export const GameRewardWrapper = styled.div`
       img {
         height: 48px;
       }
+
+      label {
+        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+      }
     }
 
     .incentive {
       align-items: center;
       border-radius: 32px;
-
-      label {
-        color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
-      }
     }
 
     label {

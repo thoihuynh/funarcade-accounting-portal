@@ -22,7 +22,7 @@ interface Props {
   loading?: boolean;
 }
 
-const ROWS_PER_PAGE_OPTIONS = [5, 10, 25];
+const ROWS_PER_PAGE_OPTIONS = [5, 10, 20];
 
 const CommonTable = memo((props: Props) => {
   const {

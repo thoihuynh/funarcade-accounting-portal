@@ -71,7 +71,9 @@ const GameRewardPage = () => {
 
   useEffect(() => {
     if (searchInput) {
-      const gameData = rows.filter(r => r.userName.includes(searchInput));
+      const gameData = rows.filter(r =>
+        r.userName?.toLowerCase().includes(searchInput.toLowerCase()),
+      );
       setTableData(gameData);
     } else {
       setTableData(rows);
@@ -81,7 +83,10 @@ const GameRewardPage = () => {
   return (
     <Container>
       <div className="d-flex header-title">
-        <div className="title">Game Reward Points</div>
+        <div className="title">
+          {tableData?.length === 0 ? 'No Result Founded' : 'Game Reward Points'}{' '}
+        </div>
+
         <div className="d-flex">
           <CommonField
             type="text"
@@ -106,13 +111,19 @@ const GameRewardPage = () => {
         <CustomBody>
           <div className="d-flex row">
             <div className="d-flex reward">
-              <img src={iconCurrency} alt="" />
-              <div className="incentive">
-                <label htmlFor="">Total Reward Points: 1,000,001</label>
-                <label htmlFor="">
-                  Total Incentive Pool: 1,000 FAT - 800 USDC
-                </label>
-              </div>
+              {tableData?.length === 0 ? (
+                <label htmlFor="">Try another keyword.</label>
+              ) : (
+                <>
+                  <img src={iconCurrency} alt="" />
+                  <div className="incentive">
+                    <label htmlFor="">Total Reward Points: 1,000,001</label>
+                    <label htmlFor="">
+                      Total Incentive Pool: 1,000 FAT - 800 USDC
+                    </label>
+                  </div>
+                </>
+              )}
             </div>
 
             <DateRange
@@ -120,39 +131,41 @@ const GameRewardPage = () => {
             />
           </div>
 
-          <TableWrapper>
-            <CommonTable
-              totalCount={totalCount}
-              page={page}
-              setPage={setPage}
-              rowsPerPage={rowsPerPage}
-              setRowsPerPage={setRowsPerPage}
-              loading={false}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell className="small-title">User Name</TableCell>
-                  <TableCell className="small-title">Volume (FAT)</TableCell>
-                  <TableCell className="small-title">Volume (USDC)</TableCell>
-                  <TableCell className="small-title">Total Volume</TableCell>
-                  <TableCell className="small-title">Tier</TableCell>
-                  <TableCell className="small-title">Reward Points</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {tableData?.map(row => (
+          {tableData?.length > 0 && (
+            <TableWrapper>
+              <CommonTable
+                totalCount={totalCount}
+                page={page}
+                setPage={setPage}
+                rowsPerPage={rowsPerPage}
+                setRowsPerPage={setRowsPerPage}
+                loading={false}
+              >
+                <TableHead>
                   <TableRow>
-                    <TableCell>{row.userName}</TableCell>
-                    <TableCell>{row.volumeFAT}</TableCell>
-                    <TableCell>{row.volumeUSDC}</TableCell>
-                    <TableCell>{row.totalVolume}</TableCell>
-                    <TableCell>{row.tier}</TableCell>
-                    <TableCell>{row.rewardPoint}</TableCell>
+                    <TableCell className="small-title">User Name</TableCell>
+                    <TableCell className="small-title">Volume (FAT)</TableCell>
+                    <TableCell className="small-title">Volume (USDC)</TableCell>
+                    <TableCell className="small-title">Total Volume</TableCell>
+                    <TableCell className="small-title">Tier</TableCell>
+                    <TableCell className="small-title">Reward Points</TableCell>
                   </TableRow>
-                ))}
-              </TableBody>
-            </CommonTable>
-          </TableWrapper>
+                </TableHead>
+                <TableBody>
+                  {tableData.map(row => (
+                    <TableRow>
+                      <TableCell>{row.userName}</TableCell>
+                      <TableCell>{row.volumeFAT}</TableCell>
+                      <TableCell>{row.volumeUSDC}</TableCell>
+                      <TableCell>{row.totalVolume}</TableCell>
+                      <TableCell>{row.tier}</TableCell>
+                      <TableCell>{row.rewardPoint}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </CommonTable>
+            </TableWrapper>
+          )}
         </CustomBody>
       </GameRewardWrapper>
     </Container>

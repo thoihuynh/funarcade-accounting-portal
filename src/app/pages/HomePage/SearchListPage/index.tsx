@@ -51,7 +51,9 @@ const SearchListPage = () => {
 
   useEffect(() => {
     if (searchInput) {
-      const data = rows.filter(row => row.name.includes(searchInput));
+      const data = rows.filter(row =>
+        row.name.toLowerCase().includes(searchInput.toLowerCase()),
+      );
       setSearchListData(data);
     }
   }, [searchInput]);
@@ -80,7 +82,11 @@ const SearchListPage = () => {
       </div>
 
       <div className="d-flex header-title">
-        <div className="title">User Name Search List</div>
+        <div className="title">
+          {searchListData?.length === 0
+            ? 'No Result Founded'
+            : 'User Name Search List'}
+        </div>
         <div className="d-flex">
           <SearchInput
             value={searchInput}
@@ -98,25 +104,32 @@ const SearchListPage = () => {
         </Helmet>
 
         <CustomBody>
-          <h3>{searchListData?.length || 0} Result(s) Found</h3>
-          <TableWrapper>
-            <Table>
-              <TableBody>
-                {searchListData?.map(row => (
-                  <TableRow key={row.id}>
-                    <TableCell>
-                      <Link
-                        to={`/user-list-search/detail/${row.id}?name=${searchInput}`}
-                      >
-                        {row.name}
-                      </Link>
-                    </TableCell>
-                    <TableCell>Current Reward Points: {row.point}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableWrapper>
+          <h3>
+            {searchListData?.length > 0
+              ? searchListData?.length + ' Result(s) Found'
+              : 'Try another keyword.'}{' '}
+          </h3>
+
+          {searchListData?.length > 0 && (
+            <TableWrapper>
+              <Table>
+                <TableBody>
+                  {searchListData?.map(row => (
+                    <TableRow key={row.id}>
+                      <TableCell>
+                        <Link
+                          to={`/user-list-search/detail/${row.id}?name=${searchInput}`}
+                        >
+                          {row.name}
+                        </Link>
+                      </TableCell>
+                      <TableCell>Current Reward Points: {row.point}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableWrapper>
+          )}
         </CustomBody>
       </HomepageWrap>
     </Container>

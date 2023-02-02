@@ -64,7 +64,7 @@ export const CommonTablePaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 16px 0;
-  margin: 32px 0;
+  margin: 4px 0;
 
   color: #0f1d44;
   font-size: ${FONT_SIZE_STYLES.DEFAULT};
