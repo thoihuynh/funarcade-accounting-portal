@@ -232,6 +232,19 @@ export const CustomGlobalStyles = createGlobalStyle`
   .link {
     cursor: pointer;
   }
+
+  .coming-soon {
+    font-weight: 700;
+    font-size: 8px;
+    line-height: 8px;
+    text-align: center;
+    color: #020069;
+
+    width: 44px;
+    padding: 4px;
+    background: #B7C2E8;
+    border-radius: 20px;
+  }
 `;
 
 interface NumberProps {

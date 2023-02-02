@@ -222,23 +222,35 @@ const Sidebar = () => {
         )}
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('/lotteries')}`}
-          onClick={() => handleClickMenu('/lotteries')}
+          className={`list-item`}
+          // className={`list-item ${checkMenuItemActive('/lotteries')}`}
+          // onClick={() => handleClickMenu('/lotteries')}
         >
           <ListItemIcon>
             <IconMenuLottery />
           </ListItemIcon>
-          {toggleSidebar && <ListItemText primary="Lotteries" />}
+          {toggleSidebar && (
+            <>
+              <ListItemText primary="Lotteries" />
+              <span className="coming-soon">Coming soon</span>
+            </>
+          )}
         </ListItem>
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('/sports')}`}
-          onClick={() => handleClickMenu('/sports')}
+          className={`list-item`}
+          // className={`list-item ${checkMenuItemActive('/sports')}`}
+          // onClick={() => handleClickMenu('/sports')}
         >
           <ListItemIcon>
             <IconMenuSport />
           </ListItemIcon>
-          {toggleSidebar && <ListItemText primary="Sports" />}
+          {toggleSidebar && (
+            <>
+              <ListItemText primary="Sports" />
+              <div className="coming-soon">Coming soon</div>
+            </>
+          )}
         </ListItem>
 
         <ToggleWrapper onClick={onToggleExpandSidebar}>

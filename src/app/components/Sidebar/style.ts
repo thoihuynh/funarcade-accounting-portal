@@ -47,7 +47,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
       span {
         display: inline-block;
         font-weight: ${FONT_WEIGHT_STYLES.BOLD};
-        font-size: 24px;
+        font-size: 20px;
       }
     }
 
