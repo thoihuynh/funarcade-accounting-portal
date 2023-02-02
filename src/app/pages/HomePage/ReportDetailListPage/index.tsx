@@ -4,16 +4,15 @@ import { HomepageWrap, TableWrapper } from './style';
 import CustomBody from 'app/components/CustomBody';
 
 import { Container } from '@mui/system';
-import CommonField from 'app/components/common/CommonField';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
-import SearchIcon from 'app/components/icons/SearchIcon';
 import { useState } from 'react';
 import { useQuery } from 'app/hooks/useQuery';
 import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import DateRange from 'app/components/DateRange';
 import CommonTable from 'app/components/common/CommonTable';
 import { NumberWrapper } from 'styles/custom-global-styles';
+import SearchInput from 'app/components/SearchInput';
 
 function createData(
   gameName: string,
@@ -100,19 +99,7 @@ const SearchListPage = () => {
       <div className="d-flex header-title">
         <div className="title">User Name Report Detail</div>
         <div className="d-flex">
-          <CommonField
-            type="text"
-            className="search-input"
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
-            value={searchInput}
-            placeholder="Search by username"
-            // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            //   setSearchInput(e.target.value);
-            //   e.preventDefault();
-            // }}
-            disabled
-          />
+          <SearchInput value={searchInput} disabled />
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>
       </div>

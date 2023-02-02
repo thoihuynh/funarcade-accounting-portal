@@ -7,12 +7,11 @@ import CustomBody from 'app/components/CustomBody';
 
 import { Container } from '@mui/system';
 import { Link } from 'react-router-dom';
-import CommonField from 'app/components/common/CommonField';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
-import SearchIcon from 'app/components/icons/SearchIcon';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'app/hooks/useQuery';
+import SearchInput from 'app/components/SearchInput';
 
 function createData(id: string, name: string, point: string) {
   return { id, name, point };
@@ -39,6 +38,10 @@ const SearchListPage = () => {
 
   const [searchListData, setSearchListData] = useState<any>();
 
+  const handleOnChangeSearchInput = (e: any) => {
+    setSearchInput(e.target.value);
+  };
+
   useEffect(() => {
     if (searchInput) {
       const data = rows.filter(row => row.name.includes(searchInput));
@@ -46,26 +49,29 @@ const SearchListPage = () => {
     }
   }, [searchInput]);
 
+  useEffect(() => {
+    const handleChangeInput = setTimeout(() => {
+      if (searchInput) {
+        navigate({
+          pathname: '/user-list-search',
+          search: `?name=${searchInput}`,
+        });
+      }
+    }, 0);
+
+    return () => clearTimeout(handleChangeInput);
+  }, [searchInput]);
+
   return (
     <Container>
       <div className="d-flex header-title">
-        <div className="title">User Name Report Detail</div>
+        <div className="title">User Name Search List</div>
         <div className="d-flex">
-          <CommonField
-            type="text"
-            className="search-input"
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
+          <SearchInput
             value={searchInput}
-            placeholder="Search by username"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchInput(e.target.value);
-              navigate({
-                pathname: '/user-list-search',
-                search: `?name=${e.target.value}`,
-              });
-            }}
+            onChange={handleOnChangeSearchInput}
           />
+
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>
       </div>

@@ -15,9 +15,7 @@ import DateRange from 'app/components/DateRange';
 import { useParams } from 'react-router-dom';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import LanguageSelect from 'app/components/LanguageSelect';
-import CommonField from 'app/components/common/CommonField';
-import SearchIcon from 'app/components/icons/SearchIcon';
-import { useNavigate } from 'react-router-dom';
+import SearchInput from 'app/components/SearchInput';
 
 const rows = [
   {
@@ -188,7 +186,6 @@ const rows = [
 
 const GameReportDetail = () => {
   const { slugGame }: any = useParams();
-  const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -198,6 +195,10 @@ const GameReportDetail = () => {
 
   const handleChangeTypeDate = (type: string) => {
     console.log(type);
+  };
+
+  const handleOnChangeSearchInput = (e: any) => {
+    setSearchInput(e.target.value);
   };
 
   useEffect(() => {
@@ -212,19 +213,9 @@ const GameReportDetail = () => {
       <div className="d-flex header-title">
         <div className="title">Game Report Detail</div>
         <div className="d-flex">
-          <CommonField
-            type="text"
-            className="search-input"
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
+          <SearchInput
             value={searchInput}
-            placeholder="Search by username"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchInput(e.target.value);
-              navigate({
-                pathname: `/games/report/${e.target.value}`,
-              });
-            }}
+            onChange={handleOnChangeSearchInput}
           />
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>

@@ -31,8 +31,7 @@ import { COLOR_STYLES } from 'styles/variables';
 
 import { useEffect, useState } from 'react';
 import { Container } from '@mui/system';
-import SearchIcon from 'app/components/icons/SearchIcon';
-import CommonField from 'app/components/common/CommonField';
+import SearchInput from 'app/components/SearchInput';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import LanguageSelect from 'app/components/LanguageSelect';
 
@@ -114,16 +113,24 @@ const HomePage = () => {
   const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
-    if (searchInput) {
-      navigate({
-        pathname: '/user-list-search',
-        search: `?name=${searchInput}`,
-      });
-    }
+    const handleChangeInput = setTimeout(() => {
+      if (searchInput) {
+        navigate({
+          pathname: '/user-list-search',
+          search: `?name=${searchInput}`,
+        });
+      }
+    }, 1000);
+
+    return () => clearTimeout(handleChangeInput);
   }, [searchInput]);
 
   const handleChangeTypeDate = (type: string) => {
     console.log(type);
+  };
+
+  const handleOnChangeSearchInput = (e: any) => {
+    setSearchInput(e.target.value);
   };
 
   return (
@@ -131,16 +138,9 @@ const HomePage = () => {
       <div className="d-flex header-title">
         <div className="title">Dashboard</div>
         <div className="d-flex row">
-          <CommonField
-            type="text"
-            className="search-input"
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
+          <SearchInput
             value={searchInput}
-            placeholder="Search by username"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setSearchInput(e.target.value)
-            }
+            onChange={handleOnChangeSearchInput}
           />
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>

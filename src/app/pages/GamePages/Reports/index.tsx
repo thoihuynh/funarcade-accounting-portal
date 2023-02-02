@@ -19,11 +19,10 @@ import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
 import { Link } from 'react-router-dom';
-import CommonField from 'app/components/common/CommonField';
-import SearchIcon from 'app/components/icons/SearchIcon';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import { useNavigate } from 'react-router-dom';
+import SearchInput from 'app/components/SearchInput';
 
 // interface TableModel {
 //   gameName: string;
@@ -83,6 +82,23 @@ const GameReportPage = () => {
     console.log(type);
   };
 
+  const handleOnChangeSearchInput = (e: any) => {
+    setSearchInput(e.target.value);
+  };
+
+  useEffect(() => {
+    const handleChangeInput = setTimeout(() => {
+      if (searchInput) {
+        navigate({
+          pathname: '/user-list-search',
+          search: `?name=${searchInput}`,
+        });
+      }
+    }, 1000);
+
+    return () => clearTimeout(handleChangeInput);
+  }, [searchInput]);
+
   useEffect(() => {
     setTotalItem({
       volumeFAT: 10,
@@ -97,20 +113,9 @@ const GameReportPage = () => {
       <div className="d-flex header-title">
         <div className="title">Game Report</div>
         <div className="d-flex">
-          <CommonField
-            type="text"
-            className="search-input"
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
+          <SearchInput
             value={searchInput}
-            placeholder="Search by username"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchInput(e.target.value);
-              navigate({
-                pathname: '/user-list-search',
-                search: `?name=${e.target.value}`,
-              });
-            }}
+            onChange={handleOnChangeSearchInput}
           />
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>

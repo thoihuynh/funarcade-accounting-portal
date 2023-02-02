@@ -201,6 +201,12 @@ export const CustomGlobalStyles = createGlobalStyle`
 
   .search-input {
     margin-right: 20px;
+
+    &.disabled {
+      .input_wrap {
+        background: #B7C2E8;
+      }
+    }
   }
 
   .border-input {
