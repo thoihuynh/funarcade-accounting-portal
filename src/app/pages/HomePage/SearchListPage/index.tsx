@@ -12,6 +12,7 @@ import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'app/hooks/useQuery';
 import SearchInput from 'app/components/SearchInput';
+import PreviousIcon from 'app/components/icons/Previous';
 
 function createData(id: string, name: string, point: string) {
   return { id, name, point };
@@ -42,6 +43,12 @@ const SearchListPage = () => {
     setSearchInput(e.target.value);
   };
 
+  const handleChangeLink = () => {
+    navigate({
+      pathname: '/',
+    });
+  };
+
   useEffect(() => {
     if (searchInput) {
       const data = rows.filter(row => row.name.includes(searchInput));
@@ -64,6 +71,14 @@ const SearchListPage = () => {
 
   return (
     <Container>
+      <div className="d-flex break-crumb">
+        <h3 className="link disabled-text" onClick={handleChangeLink}>
+          Dashboard
+        </h3>
+        <PreviousIcon />
+        <h3>User Name Search List</h3>
+      </div>
+
       <div className="d-flex header-title">
         <div className="title">User Name Search List</div>
         <div className="d-flex">

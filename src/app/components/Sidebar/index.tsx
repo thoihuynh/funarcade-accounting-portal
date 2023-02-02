@@ -53,7 +53,13 @@ const Sidebar = () => {
   };
 
   const checkMenuItemActive = (link: string) => {
-    return pathname === link ? 'active' : '';
+    let currentLink = '';
+    if (pathname.includes('user-list-search')) {
+      currentLink = '/';
+    } else if (pathname.includes('games/report')) {
+      currentLink = '/games/report';
+    }
+    return pathname === link || currentLink === link ? 'active' : '';
   };
 
   const handleClickGame = (link: string) => {
@@ -216,8 +222,8 @@ const Sidebar = () => {
         )}
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('')}`}
-          onClick={() => handleClickMenu('')}
+          className={`list-item ${checkMenuItemActive('/lotteries')}`}
+          onClick={() => handleClickMenu('/lotteries')}
         >
           <ListItemIcon>
             <IconMenuLottery />
@@ -226,8 +232,8 @@ const Sidebar = () => {
         </ListItem>
 
         <ListItem
-          className={`list-item ${checkMenuItemActive('')}`}
-          onClick={() => handleClickMenu('')}
+          className={`list-item ${checkMenuItemActive('/sports')}`}
+          onClick={() => handleClickMenu('/sports')}
         >
           <ListItemIcon>
             <IconMenuSport />

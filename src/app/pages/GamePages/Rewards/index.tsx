@@ -81,7 +81,7 @@ const GameRewardPage = () => {
   return (
     <Container>
       <div className="d-flex header-title">
-        <div className="title">Game Report Points</div>
+        <div className="title">Game Reward Points</div>
         <div className="d-flex">
           <CommonField
             type="text"
@@ -108,8 +108,10 @@ const GameRewardPage = () => {
             <div className="d-flex reward">
               <img src={iconCurrency} alt="" />
               <div className="incentive">
-                <label htmlFor="">Incentive Pool: 1,000 FAT - 800 USDC</label>
-                <label htmlFor="">Current Reward Points: 1,000,001</label>
+                <label htmlFor="">Total Reward Points: 1,000,001</label>
+                <label htmlFor="">
+                  Total Incentive Pool: 1,000 FAT - 800 USDC
+                </label>
               </div>
             </div>
 

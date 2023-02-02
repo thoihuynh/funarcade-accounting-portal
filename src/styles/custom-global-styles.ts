@@ -214,6 +214,24 @@ export const CustomGlobalStyles = createGlobalStyle`
       border: 1px solid #5D3EEF;
     }
   }
+
+  .break-crumb {
+    padding-left: 24px;
+    padding-right: 24px;
+
+    gap: 8px;
+  }
+
+  .disabled-text {
+    color: #A6ACD9;
+    a {
+      color: #A6ACD9;
+    }
+  }
+
+  .link {
+    cursor: pointer;
+  }
 `;
 
 interface NumberProps {

@@ -8,11 +8,12 @@ import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import { useState } from 'react';
 import { useQuery } from 'app/hooks/useQuery';
-import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import DateRange from 'app/components/DateRange';
 import CommonTable from 'app/components/common/CommonTable';
 import { NumberWrapper } from 'styles/custom-global-styles';
 import SearchInput from 'app/components/SearchInput';
+import PreviousIcon from 'app/components/icons/Previous';
+import { useNavigate } from 'react-router-dom';
 
 function createData(
   gameName: string,
@@ -84,6 +85,7 @@ const rows = [
 
 const SearchListPage = () => {
   let query = useQuery();
+  const navigate = useNavigate();
 
   const [searchInput] = useState(query.get('name') || '');
   const [page, setPage] = useState(1);
@@ -94,8 +96,36 @@ const SearchListPage = () => {
     console.log(type);
   };
 
+  const handleChangeLink = (link: string) => {
+    if (!link) {
+      navigate({
+        pathname: '/',
+      });
+    } else {
+      navigate({
+        pathname: '/user-list-search',
+        search: `?name=${searchInput}`,
+      });
+    }
+  };
+
   return (
     <Container>
+      <div className="d-flex break-crumb">
+        <h3 className="link disabled-text" onClick={() => handleChangeLink('')}>
+          Dashboard
+        </h3>
+        <PreviousIcon />
+        <h3
+          className="link disabled-text"
+          onClick={() => handleChangeLink('user-list-search')}
+        >
+          User Name Search List
+        </h3>
+        <PreviousIcon />
+        <h3>User Name Report Detail</h3>
+      </div>
+
       <div className="d-flex header-title">
         <div className="title">User Name Report Detail</div>
         <div className="d-flex">
@@ -113,8 +143,7 @@ const SearchListPage = () => {
         <CustomBody>
           <div className="d-flex row">
             <div className="d-flex reward">
-              <img src={iconCurrency} alt="" />
-              <label htmlFor="">Current Reward Points: 1,000,001</label>
+              <label htmlFor="">User Name: {searchInput}</label>
             </div>
             <DateRange
               clickTypeDate={(value: string) => handleChangeTypeDate(value)}

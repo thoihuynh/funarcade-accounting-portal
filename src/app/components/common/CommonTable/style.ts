@@ -22,7 +22,7 @@ export const StyledTable = styled(TableContainer)`
 
     td,
     th {
-      padding: 12px 24px;
+      padding: 8px 16px;
 
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.DEFAULT};

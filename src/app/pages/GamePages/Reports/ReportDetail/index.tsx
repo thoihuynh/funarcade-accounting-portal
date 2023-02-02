@@ -12,10 +12,11 @@ import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import LanguageSelect from 'app/components/LanguageSelect';
 import SearchInput from 'app/components/SearchInput';
+import PreviousIcon from 'app/components/icons/Previous';
 
 const rows = [
   {
@@ -186,6 +187,7 @@ const rows = [
 
 const GameReportDetail = () => {
   const { slugGame }: any = useParams();
+  const navigate = useNavigate();
 
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -201,6 +203,12 @@ const GameReportDetail = () => {
     setSearchInput(e.target.value);
   };
 
+  const handleChangeLink = () => {
+    navigate({
+      pathname: '/games/report',
+    });
+  };
+
   useEffect(() => {
     const gameData = rows.find(r => r.slugGame === slugGame);
     if (gameData && gameData.data.length > 0) {
@@ -210,6 +218,14 @@ const GameReportDetail = () => {
 
   return (
     <Container>
+      <div className="d-flex break-crumb">
+        <h3 className="link disabled-text" onClick={handleChangeLink}>
+          Game Report
+        </h3>
+        <PreviousIcon />
+        <h3>Game Report Detail</h3>
+      </div>
+
       <div className="d-flex header-title">
         <div className="title">Game Report Detail</div>
         <div className="d-flex">
@@ -231,7 +247,9 @@ const GameReportDetail = () => {
           <div className="d-flex row">
             <div className="d-flex reward">
               <img src={iconCurrency} alt="" />
-              <label htmlFor="">Current Reward Points: 1,000,001</label>
+              <label htmlFor="">
+                This is Report of Profit/ Loss <br /> In Your Game Application
+              </label>
             </div>
             <DateRange
               clickTypeDate={(value: string) => handleChangeTypeDate(value)}
