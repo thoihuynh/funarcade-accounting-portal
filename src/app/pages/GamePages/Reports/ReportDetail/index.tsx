@@ -193,7 +193,7 @@ const GameReportDetail = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalCount] = useState(10);
   const [tableData, setTableData] = useState<any[]>([]);
-  const [searchInput, setSearchInput] = useState<string>(slugGame);
+  const [searchInput, setSearchInput] = useState<string>('');
 
   const handleChangeTypeDate = (type: string) => {
     console.log(type);
@@ -210,11 +210,16 @@ const GameReportDetail = () => {
   };
 
   useEffect(() => {
+    let _tableData: any[] = [];
+
     const gameData = rows.find(r => r.slugGame === slugGame);
-    if (gameData && gameData.data.length > 0) {
-      setTableData(gameData.data);
-    }
-  }, [slugGame]);
+    if (gameData && gameData.data.length > 0) _tableData = gameData.data;
+
+    if (searchInput)
+      _tableData = _tableData.filter(t => t.userName.includes(searchInput));
+
+    setTableData(_tableData);
+  }, [slugGame, searchInput]);
 
   return (
     <Container>

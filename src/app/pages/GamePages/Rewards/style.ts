@@ -30,7 +30,6 @@ export const GameRewardWrapper = styled.div`
     .incentive {
       align-items: center;
       border-radius: 32px;
-      padding: 0 16px;
 
       label {
         color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
