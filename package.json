@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "// ---DEFAULT CRA---": "",
-    "start:origin": "react-app-rewired start",
-    "build:origin": "react-app-rewired build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test:origin": "react-app-rewired test",
     "// ---TEMPLATE---": "Scripts will be also in the template",
     "start:local": "env-cmd -f ./environments/.env.local yarn start:origin",
