@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router';
 import iconHexagon from 'app/images/icons/icon-hexagon.svg';
 import iconWheel from 'app/images/icons/icon-wheel.svg';
 import iconCup from 'app/images/icons/icon-cup.svg';
-import IconHat from 'app/images/icons/hat.svg';
+// import IconHat from 'app/images/icons/hat.svg';
 
 import {
   HomepageWrap,
@@ -154,13 +154,13 @@ const HomePage = () => {
 
         <CustomBody>
           <div className="row d-flex">
-            <div className="reward d-flex">
+            {/* <div className="reward d-flex">
               <img src={IconHat} alt="" />
               <label htmlFor="">
                 Welcome To Funarcade <br />
                 Accounting Portal
               </label>
-            </div>
+            </div> */}
 
             <DateRange
               clickTypeDate={(value: string) => handleChangeTypeDate(value)}
@@ -170,95 +170,83 @@ const HomePage = () => {
           <CardContainer>
             <Grid container spacing={3}>
               <Grid item xs={12} md={4}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <CardWrapper>
-                      <CardHeader>
-                        <div className="left">
-                          <div className="row">
-                            <div className="big-title">848,721 </div>
-                            <span className="currency">fat</span>
-                            <Pointer color={CURRENCY_COLOR.FAT} />
-                          </div>
-                          <div className="row">
-                            <div className="big-title">1,848,721 </div>
-                            <span className="currency">usdc</span>
-                            <Pointer color={CURRENCY_COLOR.USDC} />
-                          </div>
-                        </div>
-
-                        <div className="right">
-                          <img src={iconHexagon} alt="" />
-                          <p>games</p>
-                        </div>
-                      </CardHeader>
-
-                      <div className="content">
-                        <ReactEcharts option={optionChart} />
+                <CardWrapper>
+                  <CardHeader>
+                    <div className="left">
+                      <div className="row">
+                        <div className="big-title">848,721 </div>
+                        <span className="currency">fat</span>
+                        <Pointer color={CURRENCY_COLOR.FAT} />
                       </div>
-                    </CardWrapper>
-                  </Grid>
-                </Grid>
+                      <div className="row">
+                        <div className="big-title">1,848,721 </div>
+                        <span className="currency">usdc</span>
+                        <Pointer color={CURRENCY_COLOR.USDC} />
+                      </div>
+                    </div>
+
+                    <div className="right">
+                      <img src={iconHexagon} alt="" />
+                      <p>games</p>
+                    </div>
+                  </CardHeader>
+
+                  <div className="content">
+                    <ReactEcharts option={optionChart} />
+                  </div>
+                </CardWrapper>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <CardWrapper>
-                      <CardHeader>
-                        <div className="left">
-                          <div className="row">
-                            <div className="big-title">848,721 </div>
-                            <span className="currency">fat</span>
-                            <Pointer color={CURRENCY_COLOR.FAT} />
-                          </div>
-                          <div className="row">
-                            <div className="big-title">1,848,721 </div>
-                            <span className="currency">usdc</span>
-                            <Pointer color={CURRENCY_COLOR.USDC} />
-                          </div>
-                        </div>
-
-                        <div className="right">
-                          <img src={iconWheel} alt="" />
-                          <p>lotteries</p>
-                        </div>
-                      </CardHeader>
-                      <div className="content">
-                        <ReactEcharts option={optionChart} />
+                <CardWrapper>
+                  <CardHeader>
+                    <div className="left">
+                      <div className="row">
+                        <div className="big-title">848,721 </div>
+                        <span className="currency">fat</span>
+                        <Pointer color={CURRENCY_COLOR.FAT} />
                       </div>
-                    </CardWrapper>
-                  </Grid>
-                </Grid>
+                      <div className="row">
+                        <div className="big-title">1,848,721 </div>
+                        <span className="currency">usdc</span>
+                        <Pointer color={CURRENCY_COLOR.USDC} />
+                      </div>
+                    </div>
+
+                    <div className="right">
+                      <img src={iconWheel} alt="" />
+                      <p>lotteries</p>
+                    </div>
+                  </CardHeader>
+                  <div className="content">
+                    <ReactEcharts option={optionChart} />
+                  </div>
+                </CardWrapper>
               </Grid>
               <Grid item xs={12} md={4}>
-                <Grid container direction="column">
-                  <Grid item>
-                    <CardWrapper>
-                      <CardHeader>
-                        <div className="left">
-                          <div className="row">
-                            <div className="big-title">848,721 </div>
-                            <span className="currency">fat</span>
-                            <Pointer color={CURRENCY_COLOR.FAT} />
-                          </div>
-                          <div className="row">
-                            <div className="big-title">1,848,721 </div>
-                            <span className="currency">usdc</span>
-                            <Pointer color={CURRENCY_COLOR.USDC} />
-                          </div>
-                        </div>
-
-                        <div className="right">
-                          <img src={iconCup} alt="" />
-                          <p>sports</p>
-                        </div>
-                      </CardHeader>
-                      <div className="content">
-                        <ReactEcharts option={optionChart} />
+                <CardWrapper>
+                  <CardHeader>
+                    <div className="left">
+                      <div className="row">
+                        <div className="big-title">848,721 </div>
+                        <span className="currency">fat</span>
+                        <Pointer color={CURRENCY_COLOR.FAT} />
                       </div>
-                    </CardWrapper>
-                  </Grid>
-                </Grid>
+                      <div className="row">
+                        <div className="big-title">1,848,721 </div>
+                        <span className="currency">usdc</span>
+                        <Pointer color={CURRENCY_COLOR.USDC} />
+                      </div>
+                    </div>
+
+                    <div className="right">
+                      <img src={iconCup} alt="" />
+                      <p>sports</p>
+                    </div>
+                  </CardHeader>
+                  <div className="content">
+                    <ReactEcharts option={optionChart} />
+                  </div>
+                </CardWrapper>
               </Grid>
             </Grid>
           </CardContainer>

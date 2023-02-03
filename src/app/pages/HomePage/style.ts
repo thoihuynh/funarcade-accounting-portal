@@ -18,8 +18,7 @@ export const HomepageWrap = styled.div`
   }
 
   .row {
-    justify-content: space-between;
-    margin-bottom: 8px;
+    justify-content: flex-end;
     .title {
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.LARGE};
@@ -47,7 +46,7 @@ export const CardContainer = styled.div`
 
 export const CardWrapper = styled(Card)`
   background: ${COLOR_STYLES.WHITE_COLOR};
-  min-height: 360px;
+  min-height: 320px;
   height: 100%;
   &.MuiPaper-root {
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
@@ -56,7 +55,7 @@ export const CardWrapper = styled(Card)`
 
   .content {
     .echarts-for-react {
-      height: 280p !important;
+      height: 240p !important;
       padding: 0 16px 16px 16px;
     }
     .chart-tooltip {
@@ -80,13 +79,9 @@ export const CardHeader = styled.div`
 
     .row {
       display: flex;
-      gap: 8px;
+      gap: 4px;
       align-items: baseline;
       justify-content: flex-start;
-
-      .big-title {
-        font-size: ${FONT_SIZE_STYLES.LARGE};
-      }
 
       .currency {
         font-size: ${FONT_SIZE_STYLES.TINY};

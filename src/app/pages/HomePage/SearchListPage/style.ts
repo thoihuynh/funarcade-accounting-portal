@@ -18,7 +18,6 @@ export const HomepageWrap = styled.div`
 
   .row {
     justify-content: space-between;
-    margin-bottom: 8px;
     .title {
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.LARGE};
@@ -43,7 +42,7 @@ export const HomepageWrap = styled.div`
 export const TableWrapper = styled.div`
   margin: 2rem 0;
   background: ${COLOR_STYLES.WHITE_COLOR};
-  border-radius: 32px;
+  border-radius: 16px;
 
   .MuiPaper-root {
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);

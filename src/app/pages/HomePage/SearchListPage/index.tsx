@@ -6,7 +6,7 @@ import { HomepageWrap, TableWrapper } from './style';
 import CustomBody from 'app/components/CustomBody';
 
 import { Container } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import { useEffect, useState } from 'react';
@@ -36,6 +36,7 @@ const SearchListPage = () => {
   let query = useQuery();
 
   const [searchInput, setSearchInput] = useState(query.get('name') || '');
+  const [, setSearchParams] = useSearchParams('');
 
   const [searchListData, setSearchListData] = useState<any>();
 
@@ -50,25 +51,14 @@ const SearchListPage = () => {
   };
 
   useEffect(() => {
+    setSearchParams({ name: searchInput });
+
     if (searchInput) {
       const data = rows.filter(row =>
         row.name.toLowerCase().includes(searchInput.toLowerCase()),
       );
       setSearchListData(data);
     }
-  }, [searchInput]);
-
-  useEffect(() => {
-    const handleChangeInput = setTimeout(() => {
-      if (searchInput) {
-        navigate({
-          pathname: '/user-list-search',
-          search: `?name=${searchInput}`,
-        });
-      }
-    }, 0);
-
-    return () => clearTimeout(handleChangeInput);
   }, [searchInput]);
 
   return (

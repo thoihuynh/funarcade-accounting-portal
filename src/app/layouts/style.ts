@@ -7,7 +7,7 @@ export const AppPageLayoutWrapper = styled.div`
     width: 100%;
     height: 100vh;
     overflow: scroll;
-    padding: 48px 20px;
+    padding: 40px 20px;
     > .MuiContainer-root {
       height: auto;
     }

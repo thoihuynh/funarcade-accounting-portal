@@ -40,8 +40,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 4px;
-    height: 8px;
+    width: 2px;
+    height: 0px;
   }
   ::-webkit-scrollbar-track {
     background: none;

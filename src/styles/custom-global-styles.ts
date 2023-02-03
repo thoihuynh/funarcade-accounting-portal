@@ -131,6 +131,7 @@ export const CustomGlobalStyles = createGlobalStyle`
   .big-title {
     font-size: ${FONT_SIZE_STYLES.LARGE} !important;
     font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
+    line-height: 1.25;
   }
 
   .small-title {
@@ -182,6 +183,7 @@ export const CustomGlobalStyles = createGlobalStyle`
 
   .header-title {
     justify-content: space-between;
+    margin-top: 8px;
     .title {
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.LARGE};
