@@ -103,8 +103,8 @@ const GameReportPage = () => {
     setTotalItem({
       volumeFAT: 10,
       volumeUSDC: 0,
-      plFAT: 12345678,
-      plUSDC: 2131222,
+      plFAT: 123,
+      plUSDC: 222,
     });
   }, []);
 
@@ -154,18 +154,16 @@ const GameReportPage = () => {
                   <TableCell className="small-title">Game Name</TableCell>
                   <TableCell className="small-title">Category</TableCell>
                   <TableCell className="small-title" align="left">
-                    Volume
-                    <br /> (FAT)
+                    Volume (FAT)
                   </TableCell>
                   <TableCell className="small-title" align="left">
-                    Volume <br />
-                    (USDC)
+                    Volume (USDC)
                   </TableCell>
                   <TableCell className="small-title" align="left">
-                    P/L(FAT)
+                    FA P/L (FAT)
                   </TableCell>
                   <TableCell className="small-title" align="left">
-                    P/L(USDC)
+                    FA P/L (USDC)
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -173,7 +171,10 @@ const GameReportPage = () => {
                 {rows.map(row => (
                   <TableRow key={row.gameName}>
                     <TableCell>
-                      <Link to={`/games/report/${row.slugGame}`}>
+                      <Link
+                        className="highlight-link"
+                        to={`/games/report/${row.slugGame}`}
+                      >
                         {row.gameName}
                       </Link>
                     </TableCell>

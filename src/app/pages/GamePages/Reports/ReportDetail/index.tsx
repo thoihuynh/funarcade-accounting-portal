@@ -290,18 +290,16 @@ const GameReportDetail = () => {
                         Game Date & Time
                       </TableCell>
                       <TableCell className="small-title" align="left">
-                        Bet amount
-                        <br /> (FAT)
+                        Volume (FAT)
                       </TableCell>
                       <TableCell className="small-title" align="left">
-                        Bet amount <br />
-                        (USDC)
+                        Volume (USDC)
                       </TableCell>
                       <TableCell className="small-title" align="left">
-                        P/L(FAT)
+                        User P/L (FAT)
                       </TableCell>
                       <TableCell className="small-title" align="left">
-                        P/L(USDC)
+                        User P/L (USDC)
                       </TableCell>
                     </TableRow>
                   </TableHead>

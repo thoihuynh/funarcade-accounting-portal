@@ -237,15 +237,19 @@ export const CustomGlobalStyles = createGlobalStyle`
 
   .coming-soon {
     font-weight: 700;
-    font-size: 8px;
+    font-size: 10px;
     line-height: 8px;
     text-align: center;
     color: #020069;
 
-    width: 44px;
-    padding: 4px;
+    width: 50px;
+    padding: 6px;
     background: #B7C2E8;
     border-radius: 20px;
+  }
+
+  .highlight-link {
+    color: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
   }
 `;
 

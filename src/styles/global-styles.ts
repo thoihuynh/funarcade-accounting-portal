@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   * {
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-family: 'Nunito Sans','Montserrat',  'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   }
 
   #root { height: 100vh; white-space: pre-line }

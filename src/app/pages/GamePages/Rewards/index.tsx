@@ -21,7 +21,6 @@ function createData(
   userName: string,
   volumeFAT: string,
   volumeUSDC: string,
-  totalVolume: string,
   tier: string,
   rewardPoint: string,
 ) {
@@ -29,32 +28,17 @@ function createData(
     userName,
     volumeFAT,
     volumeUSDC,
-    totalVolume,
     tier,
     rewardPoint,
   };
 }
 
 const rows = [
-  createData(
-    'Arthur',
-    '234,122',
-    '234,122',
-    '234,122',
-    'Tier 5 : 2%',
-    '10,291',
-  ),
-  createData(
-    'Arthur',
-    '234,122',
-    '234,122',
-    '234,122',
-    'Tier 5 : 2%',
-    '10,291',
-  ),
-  createData('Huu', '234,122', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
-  createData('Huynh', '234,122', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
-  createData('Thoi', '234,122', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Arthur', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Arthur', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Huu', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Huynh', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Thoi', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
 ];
 
 const GameRewardPage = () => {
@@ -145,7 +129,6 @@ const GameRewardPage = () => {
                     <TableCell className="small-title">User Name</TableCell>
                     <TableCell className="small-title">Volume (FAT)</TableCell>
                     <TableCell className="small-title">Volume (USDC)</TableCell>
-                    <TableCell className="small-title">Total Volume</TableCell>
                     <TableCell className="small-title">Tier</TableCell>
                     <TableCell className="small-title">Reward Points</TableCell>
                   </TableRow>
@@ -156,7 +139,6 @@ const GameRewardPage = () => {
                       <TableCell>{row.userName}</TableCell>
                       <TableCell>{row.volumeFAT}</TableCell>
                       <TableCell>{row.volumeUSDC}</TableCell>
-                      <TableCell>{row.totalVolume}</TableCell>
                       <TableCell>{row.tier}</TableCell>
                       <TableCell>{row.rewardPoint}</TableCell>
                     </TableRow>

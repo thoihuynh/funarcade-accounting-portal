@@ -178,10 +178,14 @@ const SearchListPage = () => {
                     (USDC)
                   </TableCell>
                   <TableCell className="small-title" align="left">
-                    P/L(FAT)
+                    User P/L
+                    <br />
+                    (FAT)
                   </TableCell>
                   <TableCell className="small-title" align="left">
-                    P/L(USDC)
+                    User P/L
+                    <br />
+                    (USDC)
                   </TableCell>
                 </TableRow>
               </TableHead>
