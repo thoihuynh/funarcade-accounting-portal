@@ -58,6 +58,8 @@ const Sidebar = () => {
       currentLink = '/';
     } else if (pathname.includes('games/report')) {
       currentLink = '/games/report';
+    } else if (pathname.includes('games/reward')) {
+      currentLink = '/games/reward';
     }
     return pathname === link || currentLink === link ? 'active' : '';
   };

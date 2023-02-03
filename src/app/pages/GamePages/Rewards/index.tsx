@@ -123,9 +123,11 @@ const GameRewardPage = () => {
               )}
             </div>
 
-            <DateRange
-              clickTypeDate={(value: string) => handleChangeTypeDate(value)}
-            />
+            {tableData?.length > 0 && (
+              <DateRange
+                clickTypeDate={(value: string) => handleChangeTypeDate(value)}
+              />
+            )}
           </div>
 
           {tableData?.length > 0 && (

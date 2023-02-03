@@ -58,6 +58,8 @@ const SearchListPage = () => {
         row.name.toLowerCase().includes(searchInput.toLowerCase()),
       );
       setSearchListData(data);
+    } else {
+      setSearchListData([]);
     }
   }, [searchInput]);
 
@@ -97,7 +99,7 @@ const SearchListPage = () => {
           <h3>
             {searchListData?.length > 0
               ? searchListData?.length + ' Result(s) Found'
-              : 'Try another keyword.'}{' '}
+              : 'Try another keyword.'}
           </h3>
 
           {searchListData?.length > 0 && (
