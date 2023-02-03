@@ -8,7 +8,7 @@ import {
   TableRow,
 } from '@mui/material';
 import { GameReportWrapper, NumberWrapper, TableWrapper } from './style';
-import iconHexagon from 'app/images/icons/icon-hexagon.svg';
+// import iconHexagon from 'app/images/icons/icon-hexagon.svg';
 
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 // import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -129,12 +129,12 @@ const GameReportPage = () => {
 
         <CustomBody>
           <div className="d-flex row">
-            <div className="d-flex reward">
+            {/* <div className="d-flex reward">
               <img src={iconHexagon} alt="" />
               <label htmlFor="">
                 This is Report of Profit/ Loss <br /> In Your Game Application
               </label>
-            </div>
+            </div> */}
             <DateRange
               clickTypeDate={(value: string) => handleChangeTypeDate(value)}
             />

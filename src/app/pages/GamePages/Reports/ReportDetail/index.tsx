@@ -8,7 +8,7 @@ import {
   TableRow,
 } from '@mui/material';
 import { GameReportWrapper, NumberWrapper, TableWrapper } from './style';
-import iconCurrency from 'app/images/icons/currencies/FAT.svg';
+// import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
@@ -17,6 +17,7 @@ import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import LanguageSelect from 'app/components/LanguageSelect';
 import SearchInput from 'app/components/SearchInput';
 import PreviousIcon from 'app/components/icons/Previous';
+import { findGame } from 'utils/gameConfig';
 
 const rows = [
   {
@@ -230,11 +231,16 @@ const GameReportDetail = () => {
           Game Report
         </h3>
         <PreviousIcon />
-        <h3>Game Report Detail</h3>
+        <h3>Game Report - {findGame(slugGame)?.name}</h3>
       </div>
 
       <div className="d-flex header-title">
-        <div className="title">Game Report Detail</div>
+        <div className="title">
+          {tableData?.length === 0
+            ? 'No Result Founded'
+            : `Game Report - ${findGame(slugGame)?.name}`}
+        </div>
+
         <div className="d-flex">
           <SearchInput
             value={searchInput}
@@ -246,96 +252,106 @@ const GameReportDetail = () => {
 
       <GameReportWrapper>
         <Helmet>
-          <title>Game Report Detail</title>
+          <title>Game Report</title>
           <meta name="description" content="Game report page" />
         </Helmet>
 
         <CustomBody>
-          <div className="d-flex row">
-            <div className="d-flex reward">
-              <img src={iconCurrency} alt="" />
-              <label htmlFor="">
-                This is Report of Profit/ Loss <br /> In Your Game Application
-              </label>
-            </div>
-            <DateRange
-              clickTypeDate={(value: string) => handleChangeTypeDate(value)}
-            />
-          </div>
+          <h3>{tableData?.length <= 0 ? 'Try another keyword.' : ''}</h3>
 
-          <TableWrapper>
-            <CommonTable
-              totalCount={totalCount}
-              page={page}
-              setPage={setPage}
-              rowsPerPage={rowsPerPage}
-              setRowsPerPage={setRowsPerPage}
-              loading={false}
-            >
-              <TableHead>
-                <TableRow>
-                  <TableCell className="small-title">Game Name</TableCell>
-                  <TableCell className="small-title">Game Number</TableCell>
-                  <TableCell className="small-title">
-                    Game Date & Time
-                  </TableCell>
-                  <TableCell className="small-title" align="left">
-                    Bet amount
-                    <br /> (FAT)
-                  </TableCell>
-                  <TableCell className="small-title" align="left">
-                    Bet amount <br />
-                    (USDC)
-                  </TableCell>
-                  <TableCell className="small-title" align="left">
-                    P/L(FAT)
-                  </TableCell>
-                  <TableCell className="small-title" align="left">
-                    P/L(USDC)
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {tableData.map(row => (
-                  <TableRow key={row.userName}>
-                    <TableCell>{row.userName}</TableCell>
-                    <TableCell>{row.gameNumber}</TableCell>
-                    <TableCell>{row.gameDateAndTime}</TableCell>
+          {tableData?.length > 0 && (
+            <>
+              <div className="d-flex row">
+                {/* <div className="d-flex reward">
+                  <img src={iconCurrency} alt="" />
+                  <label htmlFor="">
+                    This is Report of Profit/ Loss <br /> In Your Game Application
+                  </label>
+                </div> */}
+                <DateRange
+                  clickTypeDate={(value: string) => handleChangeTypeDate(value)}
+                />
+              </div>
 
-                    <TableCell>
-                      <NumberWrapper value={row.volumeFAT}>
-                        {row.volumeFAT}
-                      </NumberWrapper>
-                    </TableCell>
-                    <TableCell>
-                      <NumberWrapper value={row.volumeUSDC}>
-                        {row.volumeUSDC}
-                      </NumberWrapper>
-                    </TableCell>
-                    <TableCell>
-                      <NumberWrapper value={row.plFAT}>
-                        {row.plFAT}
-                      </NumberWrapper>
-                    </TableCell>
-                    <TableCell>
-                      <NumberWrapper value={row.plUSDC}>
-                        {row.plUSDC}
-                      </NumberWrapper>
-                    </TableCell>
-                  </TableRow>
-                ))}
-                <TableRow>
-                  <TableCell className="small-title" align="left" colSpan={6}>
-                    Total For Selected Date:
-                  </TableCell>
+              <TableWrapper>
+                <CommonTable
+                  totalCount={totalCount}
+                  page={page}
+                  setPage={setPage}
+                  rowsPerPage={rowsPerPage}
+                  setRowsPerPage={setRowsPerPage}
+                  loading={false}
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell className="small-title">Game Name</TableCell>
+                      <TableCell className="small-title">Game Number</TableCell>
+                      <TableCell className="small-title">
+                        Game Date & Time
+                      </TableCell>
+                      <TableCell className="small-title" align="left">
+                        Bet amount
+                        <br /> (FAT)
+                      </TableCell>
+                      <TableCell className="small-title" align="left">
+                        Bet amount <br />
+                        (USDC)
+                      </TableCell>
+                      <TableCell className="small-title" align="left">
+                        P/L(FAT)
+                      </TableCell>
+                      <TableCell className="small-title" align="left">
+                        P/L(USDC)
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {tableData.map(row => (
+                      <TableRow key={row.userName}>
+                        <TableCell>{row.userName}</TableCell>
+                        <TableCell>{row.gameNumber}</TableCell>
+                        <TableCell>{row.gameDateAndTime}</TableCell>
 
-                  <TableCell className="small-title">
-                    <NumberWrapper value={100}>100</NumberWrapper>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </CommonTable>
-          </TableWrapper>
+                        <TableCell>
+                          <NumberWrapper value={row.volumeFAT}>
+                            {row.volumeFAT}
+                          </NumberWrapper>
+                        </TableCell>
+                        <TableCell>
+                          <NumberWrapper value={row.volumeUSDC}>
+                            {row.volumeUSDC}
+                          </NumberWrapper>
+                        </TableCell>
+                        <TableCell>
+                          <NumberWrapper value={row.plFAT}>
+                            {row.plFAT}
+                          </NumberWrapper>
+                        </TableCell>
+                        <TableCell>
+                          <NumberWrapper value={row.plUSDC}>
+                            {row.plUSDC}
+                          </NumberWrapper>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    <TableRow>
+                      <TableCell
+                        className="small-title"
+                        align="left"
+                        colSpan={6}
+                      >
+                        Total For Selected Date:
+                      </TableCell>
+
+                      <TableCell className="small-title">
+                        <NumberWrapper value={100}>100</NumberWrapper>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </CommonTable>
+              </TableWrapper>
+            </>
+          )}
         </CustomBody>
       </GameReportWrapper>
     </Container>

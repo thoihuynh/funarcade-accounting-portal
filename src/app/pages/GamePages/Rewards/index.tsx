@@ -13,10 +13,9 @@ import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
 import { TableWrapper } from '../Reports/style';
-import CommonField from 'app/components/common/CommonField';
-import SearchIcon from 'app/components/icons/SearchIcon';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
+import SearchInput from 'app/components/SearchInput';
 
 function createData(
   userName: string,
@@ -69,6 +68,10 @@ const GameRewardPage = () => {
     console.log(type);
   };
 
+  const handleOnChangeSearchInput = (e: any) => {
+    setSearchInput(e.target.value);
+  };
+
   useEffect(() => {
     if (searchInput) {
       const gameData = rows.filter(r =>
@@ -88,17 +91,11 @@ const GameRewardPage = () => {
         </div>
 
         <div className="d-flex">
-          <CommonField
-            type="text"
-            className={`search-input ${searchInput ? 'border-input' : ''}`}
-            name="search-input"
-            rightTextOrIcon={<SearchIcon />}
+          <SearchInput
             value={searchInput}
-            placeholder="Search by username"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchInput(e.target.value);
-            }}
+            onChange={handleOnChangeSearchInput}
           />
+
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
         </div>
       </div>

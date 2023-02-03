@@ -7,8 +7,7 @@ import {
 
 export const GameReportWrapper = styled.div`
   .row {
-    justify-content: space-between;
-    margin-bottom: 8px;
+    justify-content: flex-end;
     .title {
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.LARGE};

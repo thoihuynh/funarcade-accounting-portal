@@ -17,11 +17,13 @@ const SearchInput = (props: Props) => {
   return (
     <CommonField
       type="text"
-      className={`search-input ${disabled ? 'disabled' : ''}`}
+      className={`search-input ${disabled ? 'disabled' : ''} ${
+        value ? 'border-input' : ''
+      }`}
       name="search-input"
       rightTextOrIcon={<SearchIcon />}
       value={value}
-      placeholder="Search by username"
+      placeholder="Username"
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
         handleSearchChange(e);
       }}

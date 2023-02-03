@@ -54,14 +54,8 @@ export interface GameProps {
   slug: string;
   name: string;
   url: string;
-  icon: any;
   isSingle: boolean;
-  cardImage: any;
-  cardImageMobile: any;
-  noControls?: boolean;
-  gameRatio: number;
 }
-
 
 export interface Currency {
   id: number;
