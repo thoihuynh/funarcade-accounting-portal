@@ -107,9 +107,7 @@ const SearchListPage = () => {
                   {searchListData?.map(row => (
                     <TableRow key={row.id}>
                       <TableCell>
-                        <Link
-                          to={`/user-list-search/detail/${row.id}?name=${searchInput}`}
-                        >
+                        <Link to={`/user-list-search/detail/${row.id}`}>
                           {row.name}
                         </Link>
                       </TableCell>

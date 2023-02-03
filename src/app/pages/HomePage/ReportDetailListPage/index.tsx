@@ -6,8 +6,7 @@ import CustomBody from 'app/components/CustomBody';
 import { Container } from '@mui/system';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
-import { useState } from 'react';
-import { useQuery } from 'app/hooks/useQuery';
+import { useEffect, useState } from 'react';
 import DateRange from 'app/components/DateRange';
 import CommonTable from 'app/components/common/CommonTable';
 import { NumberWrapper } from 'styles/custom-global-styles';
@@ -84,10 +83,9 @@ const rows = [
 ];
 
 const SearchListPage = () => {
-  let query = useQuery();
   const navigate = useNavigate();
 
-  const [searchInput] = useState(query.get('name') || '');
+  const [searchInput, setSearchInput] = useState('');
   const [page, setPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [totalCount] = useState(10);
@@ -109,6 +107,11 @@ const SearchListPage = () => {
     }
   };
 
+  useEffect(() => {
+    //TODO: Update username by id
+    setSearchInput('Arthur');
+  }, []);
+
   return (
     <Container>
       <div className="d-flex break-crumb">
@@ -123,11 +126,11 @@ const SearchListPage = () => {
           User Name Search List
         </h3>
         <PreviousIcon />
-        <h3>User Name Report Detail</h3>
+        <h3>User History</h3>
       </div>
 
       <div className="d-flex header-title">
-        <div className="title">User Name Report Detail</div>
+        <div className="title">User History</div>
         <div className="d-flex">
           <SearchInput value={searchInput} disabled />
           <LanguageSelect rightTextOrIcon={<RectangleDropdown />} />
@@ -136,7 +139,7 @@ const SearchListPage = () => {
 
       <HomepageWrap className="full_height_page">
         <Helmet>
-          <title>User Name Search List</title>
+          <title>User History</title>
           <meta name="description" content="Home page" />
         </Helmet>
 
