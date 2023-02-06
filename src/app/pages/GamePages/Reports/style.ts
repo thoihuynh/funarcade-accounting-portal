@@ -33,14 +33,41 @@ export const GameReportWrapper = styled.div`
 `;
 
 export const TableWrapper = styled.div`
-  margin-top: 20px;
-`;
+  margin-top: 24px;
 
-interface NumberProps {
-  value: number;
-}
+  table {
+    td,
+    th {
+      padding: 12px 20px;
 
-export const NumberWrapper = styled.span<NumberProps>`
-  color: ${props =>
-    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
+      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+      font-size: ${FONT_SIZE_STYLES.SMALL};
+      font-weight: ${FONT_WEIGHT_STYLES.THIN};
+    }
+
+    thead {
+      box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
+      th:not(:last-child) {
+        border-right: 1px solid #f0f5fa;
+      }
+      th {
+        border-bottom: 1px solid #f0f5fa;
+      }
+    }
+
+    tbody {
+      tr:last-child {
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
+        th,
+        td {
+          border-top: 2px solid #f0f5fa;
+        }
+
+        td {
+          font-size: ${FONT_SIZE_STYLES.LARGE};
+          font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+        }
+      }
+    }
+  }
 `;

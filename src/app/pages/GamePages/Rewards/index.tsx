@@ -1,4 +1,4 @@
-import { GameRewardWrapper } from './style';
+import { GameRewardWrapper, TableWrapper } from './style';
 import CustomBody from 'app/components/CustomBody';
 import { Helmet } from 'react-helmet-async';
 import {
@@ -12,7 +12,6 @@ import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
 import DateRange from 'app/components/DateRange';
-import { TableWrapper } from '../Reports/style';
 import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import SearchInput from 'app/components/SearchInput';

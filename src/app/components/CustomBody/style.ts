@@ -5,7 +5,7 @@ interface CssProps {
 }
 
 export const BodyWrap = styled.div<CssProps>`
-  padding: var(--padding-md) 0;
+  padding: var(--padding-lg) 0;
   .MuiContainer-root {
     max-width: 1440px;
     width: 100%;
@@ -18,6 +18,6 @@ export const BodyWrap = styled.div<CssProps>`
   }
 
   @media (max-width: 768px) {
-    padding: 24px 0;
+    padding: var(--padding-lg) 0;
   }
 `;

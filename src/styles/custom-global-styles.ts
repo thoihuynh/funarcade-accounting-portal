@@ -134,7 +134,7 @@ export const CustomGlobalStyles = createGlobalStyle`
     line-height: 1.25;
   }
 
-  .small-title {
+  .small-title, .small-title span {
     font-size: ${FONT_SIZE_STYLES.DEFAULT} !important;
     font-weight: ${FONT_WEIGHT_STYLES.BOLD} !important;
   }
@@ -202,7 +202,7 @@ export const CustomGlobalStyles = createGlobalStyle`
   }
 
   .search-input {
-    margin-right: 20px;
+    margin-right: 1rem;
 
     &.disabled {
       .input_wrap {
@@ -259,5 +259,5 @@ interface NumberProps {
 
 export const NumberWrapper = styled.span<NumberProps>`
   color: ${props =>
-    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
+    props.value < 0 ? '#DE1A3A !important' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
 `;

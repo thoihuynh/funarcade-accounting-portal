@@ -48,12 +48,3 @@ export const TableWrapper = styled.div`
     }
   }
 `;
-
-interface NumberProps {
-  value: number;
-}
-
-export const NumberWrapper = styled.span<NumberProps>`
-  color: ${props =>
-    props.value < 0 ? '#DE1A3A' : COLOR_STYLES.TEXT_SECONDARY_COLOR};
-`;

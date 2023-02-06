@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import { GameReportWrapper, NumberWrapper, TableWrapper } from './style';
+import { GameReportWrapper, TableWrapper } from './style';
 // import iconHexagon from 'app/images/icons/icon-hexagon.svg';
 
 // import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -23,6 +23,7 @@ import LanguageSelect from 'app/components/LanguageSelect';
 import RectangleDropdown from 'app/components/icons/RectangleDropdown';
 import { useNavigate } from 'react-router-dom';
 import SearchInput from 'app/components/SearchInput';
+import { NumberWrapper } from 'styles/custom-global-styles';
 
 // interface TableModel {
 //   gameName: string;

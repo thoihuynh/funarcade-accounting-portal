@@ -61,22 +61,29 @@ export const TableWrapper = styled.div`
       font-weight: ${FONT_WEIGHT_STYLES.THIN};
     }
 
-    tr:last-child {
-      td {
-        border-bottom: none;
+    thead {
+      box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
+      th:not(:last-child) {
+        border-right: 1px solid #f0f5fa;
+      }
+      th {
+        border-bottom: 1px solid #f0f5fa;
       }
     }
 
-    th:not(:last-child) {
-      border-right: 2px solid #f0f5fa;
-    }
+    tbody {
+      th:not(:last-child) {
+        border-right: 2px solid #f0f5fa;
+      }
 
-    td:not(:last-child) {
-      border-right: 2px solid #f0f5fa;
-    }
+      td {
+        border-right: 1px solid #f0f5fa;
+        border-bottom: 1px solid #f0f5fa;
+      }
 
-    td:last-child {
-      text-align: right;
+      tr:nth-last-child(2) {
+        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
+      }
     }
   }
 `;

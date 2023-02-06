@@ -38,10 +38,10 @@ export const HomepageWrap = styled.div`
       }
     }
   }
-`;
 
-export const CardContainer = styled.div`
-  margin: 2rem 0;
+  .grid-cards {
+    margin-top: 0;
+  }
 `;
 
 export const CardWrapper = styled(Card)`
@@ -121,7 +121,7 @@ export const Pointer = styled.span<PointerCss>`
 `;
 
 export const TableWrapper = styled.div`
-  margin: 2rem 0;
+  margin: 24px 0;
   background: ${COLOR_STYLES.WHITE_COLOR};
   border-radius: 32px;
 
@@ -134,7 +134,7 @@ export const TableWrapper = styled.div`
   table {
     td,
     th {
-      padding: 12px 24px;
+      padding: 12px 20px;
 
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.SMALL};
@@ -148,7 +148,6 @@ export const TableWrapper = styled.div`
       }
       th {
         border-bottom: 2px solid #f0f5fa;
-        box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
       }
     }
 
@@ -160,14 +159,14 @@ export const TableWrapper = styled.div`
       td:not(:last-child) {
         border-right: 2px solid #f0f5fa;
       }
-  
+
       tr:not(:last-child) {
         th,
         td {
           border-bottom: none;
         }
       }
-  
+
       tr:last-child {
         box-shadow: 0px -5px 10px rgba(179, 196, 217, 0.2);
         th,
@@ -180,5 +179,6 @@ export const TableWrapper = styled.div`
           font-weight: ${FONT_WEIGHT_STYLES.BOLD};
         }
       }
+    }
   }
 `;

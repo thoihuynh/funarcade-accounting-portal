@@ -21,11 +21,12 @@ export const StyledTable = styled(TableContainer)`
     border-radius: 24px;
 
     td,
-    th {
-      padding: 8px 16px;
+    th,
+    span {
+      padding: 12px 20px !important;
 
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
-      font-size: ${FONT_SIZE_STYLES.DEFAULT};
+      font-size: ${FONT_SIZE_STYLES.DEFAULT} !important;
       font-weight: ${FONT_WEIGHT_STYLES.THIN};
     }
 
@@ -51,6 +52,11 @@ export const StyledTable = styled(TableContainer)`
         }
       }
     }
+
+    td {
+      border-right: 1px solid #f0f5fa;
+      border-bottom: 1px solid #f0f5fa;
+    }
   }
 
   @media (max-width: 768px) {
@@ -63,8 +69,8 @@ export const StyledTable = styled(TableContainer)`
 export const CommonTablePaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 16px 0;
-  margin: 4px 0;
+  padding: 0 0 16px 0;
+  margin: 24px 0;
 
   color: #0f1d44;
   font-size: ${FONT_SIZE_STYLES.DEFAULT};

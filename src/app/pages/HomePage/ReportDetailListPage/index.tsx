@@ -227,7 +227,7 @@ const SearchListPage = () => {
                     <NumberWrapper value={100}>100</NumberWrapper>
                   </TableCell>
                   <TableCell className="small-title">
-                    0<NumberWrapper value={0}>0</NumberWrapper>
+                    <NumberWrapper value={0}>0</NumberWrapper>
                   </TableCell>
                   <TableCell className="small-title">
                     <NumberWrapper value={-100}>-100</NumberWrapper>

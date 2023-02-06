@@ -39,7 +39,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
     .MuiListItemIcon-root {
       min-width: auto;
-      margin: 0 2px;
+      margin: 0 4px;
     }
 
     .MuiListItemText-root {
@@ -48,6 +48,15 @@ export const SidebarNav = styled(List)<CssPropsNav>`
         display: inline-block;
         font-weight: ${FONT_WEIGHT_STYLES.BOLD};
         font-size: 20px;
+        color: #b7c2e8;
+      }
+    }
+
+    &.active {
+      .MuiListItemText-root {
+        span {
+          color: #020069;
+        }
       }
     }
 
@@ -108,6 +117,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
       .list-item {
         width: 100%;
         max-width: 100%;
+
         margin-top: 4px;
 
         &:hover {
@@ -118,7 +128,15 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
       .list-item.sub-item {
         width: calc(100% - 16px);
-        margin: 8px auto;
+        margin: 2px auto;
+
+        &:last-child {
+          margin-bottom: 8px;
+        }
+
+        &:first-child {
+          margin-top: -4px;
+        }
 
         svg {
           path {
@@ -150,6 +168,8 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
     margin-top: 4px;
     color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
+
+    height: 60px;
 
     &:hover {
       background: ${COLOR_STYLES.WHITE_COLOR};
@@ -206,6 +226,7 @@ export const SidebarHeader = styled.div`
     gap: 16px;
 
     span {
+      display: inline-block;
       font-size: ${FONT_SIZE_STYLES.SMALL};
     }
   }

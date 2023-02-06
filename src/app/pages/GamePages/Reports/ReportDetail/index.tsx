@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import { GameReportWrapper, NumberWrapper, TableWrapper } from './style';
+import { GameReportWrapper, TableWrapper } from './style';
 // import iconCurrency from 'app/images/icons/currencies/FAT.svg';
 import { useEffect, useState } from 'react';
 import CommonTable from 'app/components/common/CommonTable';
@@ -18,6 +18,7 @@ import LanguageSelect from 'app/components/LanguageSelect';
 import SearchInput from 'app/components/SearchInput';
 import PreviousIcon from 'app/components/icons/Previous';
 import { findGame } from 'utils/gameConfig';
+import { NumberWrapper } from 'styles/custom-global-styles';
 
 const rows = [
   {
