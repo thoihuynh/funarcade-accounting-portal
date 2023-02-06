@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { SIDE_BAR_MIN_WIDTH, SIDE_BAR_MAX_WIDTH } from 'styles/variables';
 import iconToggle from 'app/images/toggle.svg';
-import logo from 'app/images/icons/icon-app.svg';
-import { HoverMenu, SidebarHeader, SidebarNav, ToggleWrapper } from './style';
+import { HoverMenu, SidebarNav, ToggleWrapper } from './style';
 import {
   Collapse,
   List,
@@ -22,6 +21,7 @@ import IconMenuLottery from '../icons/menu-lottery';
 import IconMenuReport from '../icons/menu-report';
 import IconMenuReward from '../icons/menu-reward';
 import IconMenuGame from '../icons/menu-game';
+import SidebarHeader from './SidebarHeader';
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -81,12 +81,10 @@ const Sidebar = () => {
         expand={toggleSidebar}
         width={toggleSidebar ? SIDE_BAR_MAX_WIDTH : SIDE_BAR_MIN_WIDTH}
       >
-        <SidebarHeader>
-          <div className="logo-menu d-flex" onClick={() => handleClickMenu('')}>
-            <img src={logo} alt="logo" />
-            {toggleSidebar && <span>funarcade</span>}
-          </div>
-        </SidebarHeader>
+        <SidebarHeader
+          toggleSidebar={toggleSidebar}
+          handleClickMenu={(value: string) => handleClickMenu(value)}
+        />
 
         <ListItem
           className={`list-item ${checkMenuItemActive('/')}`}

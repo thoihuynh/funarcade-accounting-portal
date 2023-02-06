@@ -1,10 +1,6 @@
 import { List, Popover } from '@mui/material';
 import styled from 'styled-components';
-import {
-  COLOR_STYLES,
-  FONT_SIZE_STYLES,
-  FONT_WEIGHT_STYLES,
-} from 'styles/variables';
+import { COLOR_STYLES, FONT_WEIGHT_STYLES } from 'styles/variables';
 // import { HEADER_HEIGHT } from 'utils/constants';
 
 interface CssPropsNav {
@@ -207,27 +203,6 @@ export const SidebarNav = styled(List)<CssPropsNav>`
     }
     to {
       transform: rotate(0deg);
-    }
-  }
-`;
-
-export const SidebarHeader = styled.div`
-  width: 100%;
-  padding: 4px 28px;
-  .logo-menu {
-    padding-top: 52px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: ${FONT_WEIGHT_STYLES.BOLD};
-    color: ${COLOR_STYLES.WHITE_COLOR};
-    cursor: pointer;
-
-    justify-content: center;
-    gap: 16px;
-
-    span {
-      display: inline-block;
-      font-size: ${FONT_SIZE_STYLES.SMALL};
     }
   }
 `;

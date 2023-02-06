@@ -251,6 +251,25 @@ export const CustomGlobalStyles = createGlobalStyle`
   .highlight-link {
     color: ${COLOR_STYLES.BACKGROUND_MAIN_COLOR};
   }
+
+  .popover-logo-menu {
+    .MuiPaper-root {
+      background-color: transparent;
+      border-radius: 20px;
+      .popover-logo-menu-detail {
+        background: #7B61FF;
+        padding: 2px 4px;
+        color:#FFFFFF;
+        font-size: ${FONT_SIZE_STYLES.TINY};
+        font-weight: ${FONT_WEIGHT_STYLES.BOLD};
+  
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
 `;
 
 interface NumberProps {
