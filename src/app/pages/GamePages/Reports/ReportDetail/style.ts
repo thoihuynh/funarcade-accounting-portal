@@ -37,6 +37,13 @@ export const TableWrapper = styled.div`
   margin-top: 20px;
 
   table {
+    thead {
+      box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
+      th {
+        border-bottom: 1px solid #f0f5fa;
+      }
+    }
+
     tbody {
       tr:nth-last-child(1) {
         height: 48px;

@@ -67,16 +67,14 @@ export const TableWrapper = styled.div`
       }
     }
 
-    th:not(:last-child) {
-      border-right: 2px solid #f0f5fa;
-    }
-
-    td:not(:last-child) {
-      border-right: 2px solid #f0f5fa;
-    }
-
     td:last-child {
       text-align: right;
+    }
+
+    tbody {
+      td {
+        border-bottom: 1px solid #f0f5fa;
+      }
     }
   }
 `;

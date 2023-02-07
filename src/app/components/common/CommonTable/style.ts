@@ -32,11 +32,16 @@ export const StyledTable = styled(TableContainer)`
 
     td,
     th:not(:last-child) {
-      border-right: 1px solid rgba(224, 224, 224, 1);
+      border-right: 1px solid #d9e2ec;
     }
 
     thead {
       box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
+
+      td,
+      th:not(:last-child) {
+        border-right: 1px solid #d9e2ec;
+      }
     }
 
     tbody {
@@ -54,7 +59,7 @@ export const StyledTable = styled(TableContainer)`
     }
 
     td {
-      border-right: 1px solid #f0f5fa;
+      border-right: 1px solid #d9e2ec;
       border-bottom: 1px solid #f0f5fa;
     }
   }

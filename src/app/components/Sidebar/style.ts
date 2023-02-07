@@ -65,11 +65,11 @@ export const SidebarNav = styled(List)<CssPropsNav>`
     .sub-menu-text {
       span {
         font-size: 16px;
-        color: #0f1d44;
+        color: #020069;
       }
       svg {
         path {
-          fill: #0f1d44;
+          fill: #020069;
         }
       }
     }
@@ -136,7 +136,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
 
         svg {
           path {
-            fill: #0f1d44;
+            fill: #020069;
           }
         }
 

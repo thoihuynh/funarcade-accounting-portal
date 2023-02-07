@@ -233,6 +233,10 @@ export const CustomGlobalStyles = createGlobalStyle`
 
   .link {
     cursor: pointer;
+    &:hover {
+      color: #5D3EEF;
+      text-decoration: underline;
+    }
   }
 
   .coming-soon {

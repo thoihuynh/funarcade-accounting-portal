@@ -59,9 +59,6 @@ export const TableWrapper = styled.div`
 
     thead {
       box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
-      th:not(:last-child) {
-        border-right: 1px solid #f0f5fa;
-      }
       th {
         border-bottom: 1px solid #f0f5fa;
       }
