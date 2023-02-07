@@ -17,11 +17,13 @@ export const Wrapper = styled.div`
     cursor: pointer;
 
     justify-content: center;
-    gap: 28px;
+    gap: 12px;
 
     span {
       display: inline-block;
       font-size: ${FONT_SIZE_STYLES.SMALL};
     }
+
+    transform: translateX(-8px);
   }
 `;
