@@ -238,7 +238,7 @@ const GameReportDetail = () => {
       <div className="d-flex header-title">
         <div className="title">
           {tableData?.length === 0
-            ? 'No Result Founded'
+            ? 'No Results Found'
             : `Game Report - ${findGame(slugGame)?.name}`}
         </div>
 
@@ -285,7 +285,7 @@ const GameReportDetail = () => {
                 >
                   <TableHead>
                     <TableRow>
-                      <TableCell className="small-title">Game Name</TableCell>
+                      <TableCell className="small-title">User Name</TableCell>
                       <TableCell className="small-title">Game Number</TableCell>
                       <TableCell className="small-title">
                         Game Date & Time

@@ -76,7 +76,7 @@ const SearchListPage = () => {
       <div className="d-flex header-title">
         <div className="title">
           {searchListData?.length === 0
-            ? 'No Result Founded'
+            ? 'No Results Found'
             : 'User Name Search List'}
         </div>
         <div className="d-flex">

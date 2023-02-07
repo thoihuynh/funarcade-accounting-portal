@@ -70,7 +70,7 @@ const GameRewardPage = () => {
     <Container>
       <div className="d-flex header-title">
         <div className="title">
-          {tableData?.length === 0 ? 'No Result Founded' : 'Game Reward Points'}{' '}
+          {tableData?.length === 0 ? 'No Results Found' : 'Game Reward Points'}{' '}
         </div>
 
         <div className="d-flex">
