@@ -134,7 +134,7 @@ export const TableWrapper = styled.div`
   table {
     td,
     th {
-      padding: 12px 20px;
+      padding: 10px 20px;
 
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.SMALL};

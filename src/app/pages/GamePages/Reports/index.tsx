@@ -61,6 +61,11 @@ const rows = [
   createData('Blackjack', 'blackjack', 'Single Player', 100, 0, 100, 0),
   createData('Dice', 'dice', 'Single Player', 100, 0, 0, -0),
   createData('Crash', 'crash', 'Multiple Player', 100, 0, -50, 0),
+  createData('Money Mountain', 'road', 'Single Player', 100, 0, -50, 0),
+  createData('Hilo', 'hilo', 'Single Player', 100, 0, 100, 0),
+  createData('Blackjack', 'blackjack', 'Single Player', 100, 0, 100, 0),
+  createData('Dice', 'dice', 'Single Player', 100, 0, 0, -0),
+  createData('Crash', 'crash', 'Multiple Player', 100, 0, -50, 0),
 ];
 
 const GameReportPage = () => {

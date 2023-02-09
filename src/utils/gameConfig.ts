@@ -31,7 +31,7 @@ export const GAME_LIST: GameProps[] = [
   },
   {
     slug: ROAD_GAME_SLUG,
-    name: 'Road To Riches',
+    name: 'Money Mountain',
     url: '/single-player/' + ROAD_GAME_SLUG,
     isSingle: true,
   },

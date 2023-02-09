@@ -38,6 +38,11 @@ const rows = [
   createData('Huu', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
   createData('Huynh', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
   createData('Thoi', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Arthur1', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Arthur2', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Huu1', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Huynh1', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
+  createData('Thoi1', '234,122', '234,122', 'Tier 5 : 2%', '10,291'),
 ];
 
 const GameRewardPage = () => {

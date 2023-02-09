@@ -48,15 +48,6 @@ export const TableWrapper = styled.div`
   margin-top: 24px;
 
   table {
-    td,
-    th {
-      padding: 12px 20px;
-
-      color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
-      font-size: ${FONT_SIZE_STYLES.SMALL};
-      font-weight: ${FONT_WEIGHT_STYLES.THIN};
-    }
-
     thead {
       box-shadow: 0px 10px 10px rgba(181, 197, 217, 0.1);
       th {
