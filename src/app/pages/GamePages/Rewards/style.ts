@@ -8,7 +8,6 @@ import {
 export const GameRewardWrapper = styled.div`
   .row {
     justify-content: space-between;
-    margin-bottom: 8px;
     .title {
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.LARGE};
@@ -16,14 +15,14 @@ export const GameRewardWrapper = styled.div`
     }
 
     .reward {
-      height: 48px;
+      height: 40px;
       align-items: center
       gap: 4px;
       border-radius: 32px;
       padding-right: 16px;
 
       img {
-        height: 48px;
+        height: 40px;
       }
 
       label {
@@ -45,7 +44,7 @@ export const GameRewardWrapper = styled.div`
 `;
 
 export const TableWrapper = styled.div`
-  margin-top: 24px;
+  margin-top: 20px;
 
   table {
     thead {

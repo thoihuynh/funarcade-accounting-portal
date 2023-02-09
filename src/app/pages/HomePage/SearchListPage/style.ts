@@ -40,7 +40,7 @@ export const HomepageWrap = styled.div`
 `;
 
 export const TableWrapper = styled.div`
-  margin: 2rem 0;
+  margin: 20px 0;
   background: ${COLOR_STYLES.WHITE_COLOR};
   border-radius: 16px;
 

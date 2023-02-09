@@ -70,7 +70,7 @@ const optionChart = {
   grid: {
     left: '2%',
     right: '8%',
-    bottom: '2%',
+    bottom: '0%',
     containLabel: true,
   },
 

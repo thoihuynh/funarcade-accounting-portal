@@ -74,8 +74,7 @@ export const StyledTable = styled(TableContainer)`
 export const CommonTablePaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 0 16px 0;
-  margin: 24px 0;
+  margin: 20px 0;
 
   color: #0f1d44;
   font-size: ${FONT_SIZE_STYLES.DEFAULT};

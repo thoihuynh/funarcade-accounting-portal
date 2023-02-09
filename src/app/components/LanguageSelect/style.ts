@@ -10,7 +10,7 @@ import {
 export const LanguageWrap = styled.li`
   list-style: none;
   background: #ffff;
-  height: 48px;
+  height: 36px;
   border-radius: 32px;
 
   .lang-wrapper {

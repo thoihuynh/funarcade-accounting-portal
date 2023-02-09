@@ -66,7 +66,7 @@ const CustomField = styled.div`
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
 
     border-radius: 32px !important;
-    height: 48px;
+    height: 36px;
     background: #ffff;
   }
 

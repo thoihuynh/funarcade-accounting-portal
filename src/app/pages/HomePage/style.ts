@@ -46,7 +46,7 @@ export const HomepageWrap = styled.div`
 
 export const CardWrapper = styled(Card)`
   background: ${COLOR_STYLES.WHITE_COLOR};
-  min-height: 320px;
+  min-height: 260px;
   height: 100%;
   &.MuiPaper-root {
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
@@ -54,9 +54,11 @@ export const CardWrapper = styled(Card)`
   }
 
   .content {
+    transform: translateY(-24px);
+
     .echarts-for-react {
-      height: 240p !important;
-      padding: 0 16px 16px 16px;
+      height: 250px !important;
+      padding: 0 16px;
     }
     .chart-tooltip {
       font-weight: ${FONT_WEIGHT_STYLES.THIN};
@@ -72,7 +74,7 @@ export const CardHeader = styled.div`
   justify-content: space-between;
 
   padding: 0 24px 0 24px;
-  transform: translateY(20px);
+  transform: translateY(12px);
   .left {
     color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
     font-weight: ${FONT_WEIGHT_STYLES.BOLD};
@@ -121,7 +123,7 @@ export const Pointer = styled.span<PointerCss>`
 `;
 
 export const TableWrapper = styled.div`
-  margin: 24px 0;
+  margin: 20px 0;
   background: ${COLOR_STYLES.WHITE_COLOR};
   border-radius: 32px;
 
@@ -134,7 +136,7 @@ export const TableWrapper = styled.div`
   table {
     td,
     th {
-      padding: 10px 20px;
+      padding: 8px 20px;
 
       color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
       font-size: ${FONT_SIZE_STYLES.SMALL};

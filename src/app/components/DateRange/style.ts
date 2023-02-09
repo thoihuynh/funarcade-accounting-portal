@@ -8,7 +8,7 @@ import {
 export const Wrapper = styled.div`
   .date-btn {
     width: 160px;
-    height: 48px;
+    height: 36px;
     background: ${COLOR_STYLES.WHITE_COLOR};
     box-shadow: 0px 10px 20px rgba(179, 196, 217, 0.3);
     border-radius: 32px;

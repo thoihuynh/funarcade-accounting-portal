@@ -23,7 +23,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
   transition: width 350ms ease-out;
 
   .list-item {
-    height: 64px;
+    height: 56px;
     width: 100%;
     max-width: calc(100% - 56px);
 
@@ -165,7 +165,7 @@ export const SidebarNav = styled(List)<CssPropsNav>`
     margin-top: 4px;
     color: ${COLOR_STYLES.TEXT_MAIN_COLOR};
 
-    height: 60px;
+    height: 52px;
 
     &:hover {
       background: ${COLOR_STYLES.WHITE_COLOR};

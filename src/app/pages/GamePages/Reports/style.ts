@@ -33,7 +33,7 @@ export const GameReportWrapper = styled.div`
 `;
 
 export const TableWrapper = styled.div`
-  margin-top: 24px;
+  margin-top: 20px;
 
   table {
     td,
